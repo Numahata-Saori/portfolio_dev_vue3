@@ -1,9 +1,12 @@
 <script setup>
 import { RouterView, RouterLink } from 'vue-router'
+import ThreeBackground from './components/ThreeBackground.vue'
 </script>
 
 <template>
   <div class="app-layout">
+    <ThreeBackground />
+
     <header class="site-header">
       <div class="header-inner">
         <RouterLink to="/" class="site-logo">Portfolio</RouterLink>
@@ -13,7 +16,6 @@ import { RouterView, RouterLink } from 'vue-router'
       </div>
     </header>
 
-    <!-- ここに HomeView や WorkDetailView が動的に切り替わって表示される -->
     <main class="site-main">
       <RouterView />
     </main>
@@ -30,11 +32,17 @@ import { RouterView, RouterLink } from 'vue-router'
   display: flex;
   flex-direction: column;
   font-family: sans-serif;
-  color: #333;
+  /* color: #333; */
+  color: #2c3e50;
+  /* background: #f8fafc; */
+  background: rgba(248, 250, 252, 0.8);
 }
 .site-header {
-  border-bottom: 1px solid #e5e5e5;
-  background: #fff;
+  /* border-bottom: 1px solid #e5e5e5; */
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  /* background: #fff; */
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
   position: sticky;
   top: 0;
   z-index: 10;
@@ -51,11 +59,13 @@ import { RouterView, RouterLink } from 'vue-router'
   font-size: 1.25rem;
   font-weight: bold;
   text-decoration: none;
-  color: #222;
+  /* color: #222; */
+  color: #0f172a;
 }
 .site-nav a {
   text-decoration: none;
-  color: #555;
+  /* color: #555; */
+  color: #475569;
   font-weight: 500;
 }
 .site-main {
@@ -67,10 +77,14 @@ import { RouterView, RouterLink } from 'vue-router'
   box-sizing: border-box;
 }
 .site-footer {
-  border-top: 1px solid #eee;
+  /* border-top: 1px solid #eee; */
+  border-top: 1px solid rgba(226, 232, 240, 0.8);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
   text-align: center;
   padding: 24px;
   font-size: 0.85rem;
-  color: #888;
+  /* color: #888; */
+  color: #64748b;
 }
 </style>

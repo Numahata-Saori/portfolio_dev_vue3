@@ -116,7 +116,7 @@ onMounted(async () => {
       })
     })
 
-    observeElement('.other-works', () => {
+    observeElement('.other-works__contents', () => {
       animate('.other-works__item', {
         opacity: [0, 1], // 透明度：0 → 1
         translateY: [32, 0], // Y軸位置：32px下 → 元の位置
@@ -177,212 +177,321 @@ const scrollToSection = (targetId) => {
         </p>
 
         <div class="hero-skill">
-          <div class="hero-skill__item">
-            <span class="hero-skill__label txt-en">EXP</span>
-            <span class="hero-skill__text">機械設計 10年以上 → Webフロントエンド 4年</span>
+          <div class="hero-skill__item border-frames">
+            <p class="hero-skill__label txt-en">EXP</p>
+            <p class="hero-skill__text">機械設計 10年以上<span class="arrow"></span>Webフロントエンド 4年</p>
           </div>
-          <div class="hero-skill__item">
-            <span class="hero-skill__label txt-en">CORE</span>
-            <span class="hero-skill__text">HTML/Scss (BEM) / JavaScript / WordPress / Vue 3</span>
+          <div class="hero-skill__item border-frames">
+            <p class="hero-skill__label txt-en">CORE</p>
+            <p class="hero-skill__text"><span>HTML / CSS / Scss (BEM)</span><span>JavaScript / jQuery</span><span>PHP / WordPress</span><span>Vue / Three.js etc.</span></p>
           </div>
-          <div class="hero-skill__item">
-            <span class="hero-skill__label txt-en">SCOPE</span>
-            <span class="hero-skill__text">一人完結（ヒアリング〜納品） / 仕様書ベースの受託実装</span>
+          <div class="hero-skill__item border-frames">
+            <p class="hero-skill__label txt-en">SCOPE</p>
+            <p class="hero-skill__text"><span>一人完結（ヒアリング〜納品）</span><span>仕様書ベースの受託実装</span></p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="works common">
-      <div class="common-inner">
-        <div class="section-heading">
-          <h2 class="section-title txt-en">WORKS</h2>
-        </div>
+    <div class="bg-grid">
+      <section class="works common">
+        <div class="common-inner">
+          <div class="section-heading">
+            <h2 class="section-title txt-en">WORKS</h2>
+          </div>
 
-        <article class="featured-work">
-          <div class="featured-work__inner">
-            <div class="featured-work__box">
-              <div class="featured-work__heading">
-                <h3 class="featured-work__heading-text txt-en">FEATURED CASE</h3>
-              </div>
+          <article class="featured-work intersecting-frames-wrapper">
+            <div class="intersecting-frames">
+              <div class="featured-work__box intersecting-frames-inner">
+                <div class="featured-work__heading">
+                  <h3 class="featured-work__heading-text txt-en">FEATURED CASE</h3>
+                </div>
 
-              <p class="featured-work__category txt-en">Web Design & Front-End</p>
+                <p class="featured-work__category txt-en">Web Design & Front-End</p>
 
-              <div class="featured-work__content">
-                <div class="featured-work__visual">
-                  <div class="browser-mock">
-                    <div class="browser-mock__bar">
-                      <span class="browser-mock__dot"></span>
-                      <span class="browser-mock__dot"></span>
-                      <span class="browser-mock__dot"></span>
-                      <span class="browser-mock__address">https://intro.autohub-dev.com/</span>
-                    </div>
-                    <div class="browser-mock__viewport">
-                      <img
-                        src="/autohub_lp1.png"
-                        alt="中古車輸出事業会社 LP 全体スクリーンショット"
-                        class="browser-mock__image"
-                        loading="lazy"
-                      />
-                      <div class="browser-mock__hint txt-en">
-                        <span>SCROLL TO VIEW</span>
+                <div class="featured-work__content">
+                  <div class="featured-work__visual">
+                    <div class="browser-mock">
+                      <div class="browser-mock__bar">
+                        <span class="browser-mock__dot"></span>
+                        <span class="browser-mock__dot"></span>
+                        <span class="browser-mock__dot"></span>
+                        <span class="browser-mock__address">https://intro.autohub-dev.com/</span>
                       </div>
+                      <div class="browser-mock__viewport">
+                        <img
+                          src="/autohub_lp1.png"
+                          alt="中古車輸出事業会社 LP 全体スクリーンショット"
+                          class="browser-mock__image"
+                          loading="lazy"
+                        />
+                        <div class="browser-mock__hint txt-en">
+                          <span>SCROLL TO VIEW</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="featured-info">
+                    <h3 class="featured-info__title">中古車輸出事業会社 LP</h3>
+
+                    <div class="featured-meta">
+                      <div class="featured-meta__item">
+                        <span class="featured-meta__label txt-en">Scope</span>
+                        <span class="featured-meta__text">要件ヒアリング / 構成案・デザイン / コーディング一式（完全一人対応）</span>
+                      </div>
+                      <div class="featured-meta__item">
+                        <span class="featured-meta__label txt-en">Stack</span>
+                        <span class="featured-meta__text">HTML / CSS (BEM) / JavaScript / レスポンシブ対応<br>figma / Photoshop</span>
+                      </div>
+                      <div class="featured-meta__item">
+                        <span class="featured-meta__label txt-en">Results</span>
+                        <span class="featured-meta__text">ゼロからの専用LP立ち上げにより、公開後半年で累計50〜70件超の新規問い合わせを獲得</span>
+                      </div>
+                    </div>
+
+                    <div class="featured-points">
+                      <h4 class="featured-points__title">設計・実装におけるこだわり</h4>
+                      <dl class="featured-points__list">
+                        <div class="featured-points__item">
+                          <dt>ゼロからのWeb導線確立（AIDCAS設計）</dt>
+                          <dd>
+                            元々は受け皿となる専用ページがなかったため、AIDCAS（注目・興味・欲求・確信・行動）に準拠した情報設計を実施。初めて訪れたユーザーでも不安なく問い合わせに至る導線をゼロから構築しました。
+                          </dd>
+                        </div>
+                        <div class="featured-points__item">
+                          <dt>「海と船」のコンセプトを表現する波シェイプ</dt>
+                          <dd>
+                            船の写真を大胆に使用しつつ、セクション境界に波シェイプを採用。「スクロールするほど船で目的地（お問い合わせ）へ近づいていく」ストーリー性を持たせ、離脱を防ぐ工夫を施しました。
+                          </dd>
+                        </div>
+                        <div class="featured-points__item">
+                          <dt>崩れのない堅牢なレスポンシブコーディング</dt>
+                          <dd>
+                            スマートフォンからPCまで閲覧環境を問わず世界観を損なわないよう、波の形状やフォントサイズのブレークポイントを綿密に設計。ヒアリングから納品まで責任を持って一人で完結させました。
+                          </dd>
+                        </div>
+                      </dl>
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </article>
 
-                <div class="featured-info">
-                  <h3 class="featured-info__title">中古車輸出事業会社 LP</h3>
+          <div class="other-works">
+            <div class="other-works__heading">
+              <h3 class="other-works__heading-text txt-en">OTHER WORKS</h3>
+            </div>
 
-                  <div class="featured-info__meta">
-                    <div class="featured-info__meta-row">
-                      <span class="featured-info__meta-label txt-en">Scope</span>
-                      <span class="featured-info__meta-val">要件ヒアリング / 構成案・デザイン / コーディング一式（完全一人対応）</span>
-                    </div>
-                    <div class="featured-info__meta-row">
-                      <span class="featured-info__meta-label txt-en">Stack</span>
-                      <span class="featured-info__meta-val">HTML / CSS (BEM) / JavaScript / レスポンシブ対応<br>figma / Photoshop</span>
-                    </div>
-                    <div class="featured-info__meta-row">
-                      <span class="featured-info__meta-label txt-en">Results</span>
-                      <span class="featured-info__meta-val">ゼロからの専用LP立ち上げにより、公開後半年で累計50〜70件超の新規問い合わせを獲得</span>
-                    </div>
+            <div v-if="loading" class="state-text">実績データを読み込み中...</div>
+            <div v-else-if="errorMsg" class="state-text error">{{ errorMsg }}</div>
+
+            <div v-else class="other-works__contents">
+              <article v-for="item in works" :key="item.id" class="other-works__item">
+                <RouterLink :to="`/works/${item.id}`" class="other-works__link">
+                  <div class="other-works__thumb">
+                    <img
+                      v-if="item._embedded?.['wp:featuredmedia']?.[0]?.source_url"
+                      :src="item._embedded['wp:featuredmedia'][0].source_url"
+                      :alt="item.title.rendered"
+                      class="other-works__thumb-img"
+                    />
+                    <div v-else class="other-works__thumb-img no-image">No Image</div>
                   </div>
 
-                  <div class="featured-points">
-                    <h4 class="featured-points__title">設計・実装におけるこだわり</h4>
-                    <dl class="featured-points__list">
-                      <div class="featured-points__item">
-                        <dt>ゼロからのWeb導線確立（AIDCAS設計）</dt>
-                        <dd>
-                          元々は受け皿となる専用ページがなかったため、AIDCAS（注目・興味・欲求・確信・行動）に準拠した情報設計を実施。初めて訪れたユーザーでも不安なく問い合わせに至る導線をゼロから構築しました。
-                        </dd>
+                  <div class="other-works__body">
+                    <h3 class="other-works__title">{{ item.title.rendered }}</h3>
+                    <p v-if="item.acf?.works_stack" class="other-works__stack">
+                      <strong>Stack：</strong>{{ item.acf.works_stack }}
+                    </p>
+                  </div>
+                </RouterLink>
+              </article>
+            </div>
+          </div>
+
+          <div class="private-works intersecting-frames-wrapper">
+            <div class="intersecting-frames">
+              <div class="private-works__box intersecting-frames-inner">
+                <div class="private-works__headline-area">
+                  <div class="private-works__headline">
+                    <span class="private-works__title-en txt-en">CONFIDENTIAL</span>
+                    <h3 class="private-works__title">守秘義務案件</h3>
+                  </div>
+                  <p class="private-works__count txt-en">（全10件中7件）</p>
+                  <p class="private-works__desc">
+                    ※ クライアントワークの都合上、Web上での一般公開を控えております。<br>
+                    <!-- ご担当者様との面談時に、ぼかし処理済みの詳細資料・キャプチャを直接ご提示いたします。 -->
+                  </p>
+                </div>
+
+                <div class="private-works__list">
+                  <article class="private-works__item private-works-detail border-frames">
+                    <div class="private-works-detail__headline">
+                      <span class="private-works-detail__tag">リニューアル</span>
+                      <h4 class="private-works-detail__title">映像制作会社 コーポレートサイト（トップページ ＋ 下層4P）</h4>
+                    </div>
+                    <dl class="private-works-detail__list">
+                      <div class="private-works-detail__item">
+                        <dt>課題</dt>
+                        <dd>古いデザインの一新と、実績をしっかり見せられるコーポレートサイトにしたい。</dd>
                       </div>
-                      <div class="featured-points__item">
-                        <dt>「海と船」のコンセプトを表現する波シェイプ</dt>
-                        <dd>
-                          船の写真を大胆に使用しつつ、セクション境界に波シェイプを採用。「スクロールするほど船で目的地（お問い合わせ）へ近づいていく」ストーリー性を持たせ、離脱を防ぐ工夫を施しました。
-                        </dd>
+                      <div class="private-works-detail__item">
+                        <dt>解決</dt>
+                        <dd>シンプルさを保ちつつ、背景動画とアニメーションで先進性とクリエイティブさを表現。</dd>
                       </div>
-                      <div class="featured-points__item">
-                        <dt>崩れのない堅牢なレスポンシブコーディング</dt>
-                        <dd>
-                          スマートフォンからPCまで閲覧環境を問わず世界観を損なわないよう、波の形状やフォントサイズのブレークポイントを綿密に設計。ヒアリングから納品まで責任を持って一人で完結させました。
-                        </dd>
+                      <div class="private-works-detail__item">
+                        <dt>工夫</dt>
+                        <dd>静と動のコントラストを意識した動きのあるトップページに。実績ページではサムネイルを大きく配置し、視覚的に実績を訴求。</dd>
                       </div>
                     </dl>
-                  </div>
+                  </article>
+
+                  <article class="private-works__item private-works-detail border-frames">
+                    <div class="private-works-detail__headline">
+                      <span class="private-works-detail__tag">リニューアル</span>
+                      <h4 class="private-works-detail__title">子供向けダンス教室 ホームページ（トップページ ＋ 下層9P）</h4>
+                    </div>
+                    <dl class="private-works-detail__list">
+                      <div class="private-works-detail__item">
+                        <dt>課題</dt>
+                        <dd>既存のイメージから、子供・保護者に親しみやすいポップなサイトに変えたい。</dd>
+                      </div>
+                      <div class="private-works-detail__item">
+                        <dt>解決</dt>
+                        <dd>パステルカラー基調 ＋ 丸ゴシック体で可愛らしさを演出し、スマホファーストで設計。</dd>
+                      </div>
+                      <div class="private-works-detail__item">
+                        <dt>工夫</dt>
+                        <dd>アイコン多用・角丸デザイン・フローティングフッターで直感操作を実現。保護者が欲しい情報（料金・スケジュール）にすぐ辿り着ける構成に。</dd>
+                      </div>
+                    </dl>
+                  </article>
+
+                  <article class="private-works__item private-works-detail border-frames">
+                    <div class="private-works-detail__headline">
+                      <span class="private-works-detail__tag">リニューアル</span>
+                      <h4 class="private-works-detail__title">古美術買取専門店 ホームページ（トップページ ＋ 下層1P）</h4>
+                    </div>
+                    <dl class="private-works-detail__list">
+                      <div class="private-works-detail__item">
+                        <dt>課題</dt>
+                        <dd>素人感の強い既存サイトを、高級感のある信頼できるサイトに作り直したい。</dd>
+                      </div>
+                      <div class="private-works-detail__item">
+                        <dt>解決</dt>
+                        <dd>メインカラーを黒に統一し、落ち着いたシンプルで上質な印象に再構築。</dd>
+                      </div>
+                      <div class="private-works-detail__item">
+                        <dt>工夫</dt>
+                        <dd>余白を贅沢に使い、明朝体＋線や和のあしらいで日本らしい品格を演出。ターゲット層が安心感を抱くよう、情報整理と視認性を徹底。</dd>
+                      </div>
+                    </dl>
+                  </article>
+
+                  <ul class="private-works-simple">
+                    <li class="private-works-simple__item">
+                      <p>美容整形クリニック スマホ専用LP（SPデザインのみ / Figma納品）</p>
+                    </li>
+                    <li class="private-works-simple__item">
+                      <p>清掃管理事業 コーポレートサイト新規構築（WPオリジナルテーマ）</p>
+                    </li>
+                    <li class="private-works-simple__item">
+                      <p>体型改善ダイエット講座 LP新規制作（WPオリジナルテーマ）</p>
+                    </li>
+                    <li class="private-works-simple__item">
+                      <p>ネイルサロン コーポレートサイト新規構築</p>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="private-works__bottom">
+                  <p class="private-works__note">
+                    <span class="private-works__check">✓</span>
+                    上記案件はすべて <strong>一人対応（ヒアリング〜デザイン・オリジナルテーマ実装・公開）</strong> にて担当
+                  </p>
                 </div>
               </div>
             </div>
           </div>
-        </article>
-
-        <div class="other-works-heading">
-          <h3 class="other-works-heading__title txt-en">OTHER WORKS</h3>
         </div>
+      </section>
 
-        <div v-if="loading" class="state-text">実績データを読み込み中...</div>
-        <div v-else-if="errorMsg" class="state-text error">{{ errorMsg }}</div>
-
-        <div v-else class="other-works">
-          <article v-for="item in works" :key="item.id" class="other-works__item">
-            <RouterLink :to="`/works/${item.id}`" class="other-works__link">
-              <div class="other-works__thumb">
-                <img
-                  v-if="item._embedded?.['wp:featuredmedia']?.[0]?.source_url"
-                  :src="item._embedded['wp:featuredmedia'][0].source_url"
-                  :alt="item.title.rendered"
-                  class="other-works__thumb-img"
-                />
-                <div v-else class="other-works__thumb-img no-image">No Image</div>
-              </div>
-
-              <div class="other-works__body">
-                <h3 class="other-works__title">{{ item.title.rendered }}</h3>
-                <p v-if="item.acf?.works_stack" class="other-works__stack">
-                  <strong>Stack：</strong>{{ item.acf.works_stack }}
-                </p>
-              </div>
-            </RouterLink>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="skills common">
-      <div class="common-inner">
-        <div class="section-heading">
-          <h2 class="section-title txt-en">SKILLS & SCOPE</h2>
-          <!-- <p class="section-lead">設計業務で培った品質意識を基盤とした、実装スキルと対応領域です。</p> -->
-        </div>
-
-        <div class="skills__contents">
-          <div class="skills__box">
-            <div class="card-header-line">
-              <span class="skills__lead txt-en">FRONT-END</span>
-              <h3 class="skills__title">フロントエンド実装</h3>
-            </div>
-            <ul class="skills__list">
-              <li class="skills__item">
-                <strong>破綻のないCSS設計:</strong>
-                BEMやSMACSSをベースに、命名規則や入れ子を整理したScss設計で、改修しやすく保守性の高いコードを実装します。
-              </li>
-              <li class="skills__item">
-                <strong>動的UI・インタラクション:</strong>
-                JavaScript（ES6+）を用いた各種UI実装をはじめ、案件要件に応じてライブラリ選定から組み込みまで柔軟に対応します。
-              </li>
-              <li class="skills__item">
-                <strong>モダン環境のキャッチアップ:</strong>
-                Vue 3によるコンポーネント指向開発や、Three.js / Anime.js を活用した軽快なモーション・WebGL演出の実装に対応します。
-              </li>
-            </ul>
+      <section class="skills common">
+        <div class="common-inner">
+          <div class="section-heading">
+            <h2 class="section-title txt-en">SKILLS & SCOPE</h2>
+            <!-- <p class="section-lead">設計業務で培った品質意識を基盤とした、実装スキルと対応領域です。</p> -->
           </div>
 
-          <div class="skills__box">
-            <div class="card-header-line">
-              <span class="skills__lead txt-en">CMS / BACK-END</span>
-              <h3 class="skills__title">WordPress / 設計構築</h3>
-            </div>
-            <ul class="skills__list">
-              <li class="skills__item">
-                <strong>運用を見据えた独自テーマ構築:</strong>
-                ゼロからのオリジナルテーマ構築はもちろん、ACFやカスタム投稿を設計し、クライアントが管理画面から迷わず更新できる設計を徹底します。
-              </li>
-              <li class="skills__item">
-                <strong>機能実装・API連携:</strong>
-                PHPを用いた基本的な動的処理（テンプレート共通化・フォーム連携）や、REST API経由でのフロントエンド連携に対応します。
-              </li>
-              <li class="skills__item">
-                <strong>環境構築と納品整備:</strong>
-                ローカル開発環境から本番サーバーへの移行、既存テーマの改修や不具合調査など安全な運用保守を意識して対応します。
-              </li>
-            </ul>
-          </div>
-
-          <div class="skills__box full-width">
-            <div class="card-header-line">
-              <span class="skills__lead highlight txt-en">SCOPE</span>
-              <h3 class="skills__title">実務対応領域・進め方</h3>
-            </div>
-            <div class="scope-columns">
-              <div class="scope-columns__item">
-                <h4 class="scope-columns__title">完全一人対応での案件完結</h4>
-                <p class="scope-columns__desc">
-                  フリーランスでの受託経験を活かし、要件のヒアリングから進行管理、コーディング、サーバー公開設定、納品まで一気通貫で責任を持って対応した実績があります。
-                </p>
+          <div class="skills__contents">
+            <div class="skills__box border-frames">
+              <div class="skills__headline">
+                <span class="skills__title-en txt-en">FRONT-END</span>
+                <h3 class="skills__title">フロントエンド実装</h3>
               </div>
-              <div class="scope-columns__item">
-                <h4 class="scope-columns__title">仕様書に基づく高精度な受託実装</h4>
-                <p class="scope-columns__desc">
-                  制作会社からの下請け案件において、支給デザインや仕様書の意図を正確に汲み取り、ブラウザ検証や表示崩れのない検品精度の高いデータ納品を行っています。
-                </p>
+              <ul class="skills__list">
+                <li class="skills__item">
+                  <strong>破綻のないCSS設計:</strong><br>
+                  BEMやSMACSSをベースに、命名規則や入れ子を整理したScss設計で、改修しやすく保守性の高いコードを実装します。
+                </li>
+                <li class="skills__item">
+                  <strong>動的UI・インタラクション:</strong><br>
+                  JavaScript（ES6+）を用いた各種UI実装をはじめ、案件要件に応じてライブラリ選定から組み込みまで柔軟に対応します。
+                </li>
+                <li class="skills__item">
+                  <strong>モダン環境のキャッチアップ:</strong><br>
+                  Vue 3によるコンポーネント指向開発や、Three.js / Anime.js を活用した軽快なモーション・WebGL演出の実装に対応します。
+                </li>
+              </ul>
+            </div>
+
+            <div class="skills__box border-frames">
+              <div class="skills__headline">
+                <span class="skills__title-en txt-en">CMS / BACK-END</span>
+                <h3 class="skills__title">WordPress / 設計構築</h3>
+              </div>
+              <ul class="skills__list">
+                <li class="skills__item">
+                  <strong>運用を見据えた独自テーマ構築:</strong><br>
+                  ゼロからのオリジナルテーマ構築はもちろん、ACFやカスタム投稿を設計し、クライアントが管理画面から迷わず更新できる設計を徹底します。
+                </li>
+                <li class="skills__item">
+                  <strong>機能実装・API連携:</strong><br>
+                  PHPを用いた基本的な動的処理（テンプレート共通化・フォーム連携）や、REST API経由でのフロントエンド連携に対応します。
+                </li>
+                <li class="skills__item">
+                  <strong>環境構築と納品整備:</strong><br>
+                  ローカル開発環境から本番サーバーへの移行、既存テーマの改修や不具合調査など安全な運用保守を意識して対応します。
+                </li>
+              </ul>
+            </div>
+
+            <div class="skills__box full-width border-frames">
+              <div class="skills__headline">
+                <span class="skills__title-en highlight txt-en">SCOPE</span>
+                <h3 class="skills__title">実務対応領域・進め方</h3>
+              </div>
+              <div class="scope-columns">
+                <div class="scope-columns__item">
+                  <h4 class="scope-columns__title">完全一人対応での案件完結</h4>
+                  <p class="scope-columns__desc">
+                    フリーランスでの受託経験を活かし、要件のヒアリングから進行管理、コーディング、サーバー公開設定、納品まで一気通貫で責任を持って対応した実績があります。
+                  </p>
+                </div>
+                <div class="scope-columns__item">
+                  <h4 class="scope-columns__title">仕様書に基づく高精度な受託実装</h4>
+                  <p class="scope-columns__desc">
+                    制作会社からの下請け案件において、支給デザインや仕様書の意図を正確に汲み取り、ブラウザ検証や表示崩れのない検品精度の高いデータ納品を行っています。
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </div>
 </template>
 
@@ -480,17 +589,16 @@ const scrollToSection = (targetId) => {
   }
 }
 
-/* hero */
-.hero {
-}
 
+
+/* hero */
 .hero__lead,
 .hero-skill__item {
   opacity: 0;
 }
 
 .hero__lead {
-  color: var(--color_text_sub);
+  color: var(--color_white);
   font-size: 1rem;
   text-align: center;
 }
@@ -500,47 +608,76 @@ const scrollToSection = (targetId) => {
 }
 
 .hero-skill {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
 }
 
 .hero-skill__item {
-  background: rgba(15, 23, 42, 0.65);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-left: 3px solid #d4af37;
-  border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background: var(--color_surface);
   font-size: 1rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: .5rem;
   max-width: 800px;
+  padding: 1.5rem 1rem;
   width: 100%;
-  padding: 12px 18px;
 }
 
 .hero-skill__label {
-  font-size: 0.75rem;
+  color: var(--color_accent);
+  font-size: 1.75rem;
   font-weight: bold;
-  /* color: #0f172a; */
-  color: var(--color_text_dark);
-  background: var(--color_accent);
-  padding: 2px 10px;
-  border-radius: 4px;
-  text-align: center;
+  line-height: 1;
 }
 
 .hero-skill__text {
-  color: var(--color_text_sub);
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.hero-skill__text .arrow {
+  position: relative;
+  display: inline-block;
+  width: 1px;
+  height: 0.875rem;
+  margin: 0 6px;
+  border-radius: 100vh;
+  background-color: var(--color_sub);
+}
+
+.hero-skill__text .arrow::before,
+.hero-skill__text .arrow::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - .5px);
+  width: 1px;
+  height: 8px;
+  border-radius: 100vh;
+  background-color: var(--color_sub);
+  transform-origin: 50% calc(100% - .5px);
+}
+
+.hero-skill__text .arrow::before {
+  transform: rotate(45deg);
+}
+
+.hero-skill__text .arrow::after {
+  transform: rotate(-45deg);
 }
 
 @media screen and (max-width: 992px) {
+  .hero-skill {
+    grid-template-columns: 1fr;
+  }
+
   .hero-skill__item {
     max-width: inherit;
   }
@@ -556,36 +693,69 @@ const scrollToSection = (targetId) => {
 }
 
 
+
 /* section見出し */
 .section-heading {
+  display: flex;
+  justify-content: center;
   margin-bottom: 2rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding-bottom: 1rem;
 }
 
 .section-title {
-  color: var(--color_text_main);
   font-size: 3rem;
   font-weight: bold;
+  display: inline-block;
   line-height: 1;
   margin: 0;
   text-align: center;
 }
+
+
 
 /* 状態 */
 .state-text {
   font-size: 1rem;
   padding: 40px 0;
   text-align: center;
-  color: #94a3b8;
+  color: var(--color_text_muted);
 }
 
 .state-text.error {
   color: #f87171;
 }
 
+
+
+.bg-grid {
+  background-color: #060d19;
+  background-image:
+    linear-gradient(rgba(212, 175, 55, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 175, 55, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center top;
+  position: relative;
+  z-index: 1;
+}
+
+.bg-grid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, #060d19);
+  pointer-events: none;
+  transform: translateY(-100%);
+}
+
+
+
 /* 実績 */
 .works {
+  z-index: 2;
+  position: relative;
 }
 
 /* 注目作品 */
@@ -595,66 +765,33 @@ const scrollToSection = (targetId) => {
 
 .featured-work {
   margin-bottom: 3.75rem;
-  padding: 10px 0;
   position: relative;
 }
 
-.featured-work__inner {
-  border-top: 1px solid var(--color_line);
-  border-bottom: 1px solid var(--color_line);
-  padding: 0 10px;
-}
-
 .featured-work__box {
-  background: rgba(15, 23, 42, 0.75);
-  /* background-color: var(--color_white); */
-  backdrop-filter: blur(12px);
+  background: var(--color_surface);
   padding: 2rem 2rem;
 }
 
-.featured-work__box::before,
-.featured-work__box::after {
-  content: '';
-  background-color: var(--color_line);
-  position: absolute;
-  width: 1px;
-  top: 50%;
-  transform: translateY(-50%);
-  height: calc(100% + 20px);
-}
-
-.featured-work__box::before {
-  left: 0;
-}
-
-.featured-work__box::after {
-  right: 0;
-}
-
 .featured-work__heading {
-  background-color: var(--color_accent);
-  box-shadow: 0 0 5px rgba(0, 0, 0, .2);
-  color: var(--color_text_dark);
+  color: var(--color_white);
   display: inline-block;
-  padding: 0.75rem 1.25rem 0.5rem;
-  transform: rotate(-8deg);
-  position: absolute;
-  top: 0;
-  left: -16px;
 }
 
 .featured-work__heading-text {
-  font-size: 1.25rem;
+  color: var(--color_accent);
+  font-size: 1.75rem;
   font-weight: bold;
   line-height: 1;
 }
 
 .featured-work__category {
-  font-size: 1.25rem;
-  color: var(--color_text_sub2);
-  line-height: 1;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--color_text_muted);
+  line-height: 1.1;
   margin-bottom: 24px;
-  text-align: center;
+  padding-top: .5rem;
 }
 
 .featured-work__content {
@@ -665,7 +802,7 @@ const scrollToSection = (targetId) => {
 }
 
 @media (max-width: 992px) {
-  .featured-work__box {
+  .featured-work__box-inner {
     padding: 2rem 1rem;
   }
 
@@ -685,6 +822,93 @@ const scrollToSection = (targetId) => {
     gap: 4px;
   }
 }
+
+/* 詳細解説 */
+.featured-info__title {
+  color: var(--color_accent);
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.featured-info__title,
+.featured-meta {
+  margin-bottom: 1.25rem;
+}
+
+.featured-meta {
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 1rem 1rem 0.75rem;
+}
+
+.featured-meta__item {
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.featured-meta__label {
+  color: var(--color_sub);
+  font-size: 1.125rem;
+  font-weight: bold;
+  line-height: 1;
+  min-width: 4rem;
+}
+
+.featured-meta__text {
+  color: var(--color_text_sub);
+  font-size: 0.875rem;
+}
+
+.featured-points__title {
+  color: var(--color_accent);
+  font-size: 1.125rem;
+  font-weight: bold;
+  line-height: 1.1;
+  margin-bottom: 0.625rem;
+}
+
+.featured-points__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.featured-points__item dt {
+  color: var(--color_text_main);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 1rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin-bottom: .5rem;
+  padding-bottom: 4px;
+}
+
+.featured-points__item dt::before {
+  content: '◆';
+  font-size: 0.65rem;
+  color: var(--color_accent);
+}
+
+.featured-points__item dd {
+  color: var(--color_text_muted);
+  font-size: 0.875rem;
+}
+
+@media (max-width: 576px) {
+  .featured-points__meta-row {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+
+
 
 /* PCブラウザ風モックアップ枠 */
 .browser-mock {
@@ -716,7 +940,7 @@ const scrollToSection = (targetId) => {
 .browser-mock__dot:nth-child(3) { background: #10b981; }
 
 .browser-mock__address {
-  color: var(--color_text_sub2);
+  color: #94a3b8;
   font-size: 0.75rem;
   margin-left: 8px;
 }
@@ -761,8 +985,8 @@ const scrollToSection = (targetId) => {
 }
 
 .browser-mock__hint span {
-  color: #0f172a;
-  background: rgba(253, 224, 71, 0.85);
+  color: var(--color_base);
+  background: var(--color_accent);
   backdrop-filter: blur(4px);
   padding: 6px 10px 4px;
   border-radius: 100vh;
@@ -777,104 +1001,25 @@ const scrollToSection = (targetId) => {
   }
 }
 
-/* 詳細解説 */
-.featured-info__title {
-  color: var(--color_text_main);
-  font-size: 1.45rem;
-  font-weight: 700;
-  line-height: 1.4;
-  margin-bottom: 20px;
-}
 
-.featured-info__meta {
-  background: rgba(255, 255, 255, 0.03);
-  border-left: 2px solid #38bdf8;
-  border-radius: 4px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 1rem;
-  margin-bottom: 20px;
-}
-
-.featured-info__meta-row {
-  font-size: 0.875rem;
-  display: flex;
-  gap: 0.875rem;
-}
-
-.featured-info__meta-label {
-  color: #38bdf8;
-  font-weight: bold;
-  min-width: 4rem;
-}
-
-.featured-info__meta-val {
-  color: var(--color_text_sub);
-  font-size: 0.75rem;
-}
-
-.featured-points__title {
-  color: var(--color_accent);
-  font-size: 1rem;
-  font-weight: bold;
-  line-height: 1.1;
-  margin-bottom: 0.875rem;
-}
-
-.featured-points__list {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.featured-points__item dt {
-  color: var(--color_text_main);
-  font-size: 1rem;
-  font-weight: bold;
-  margin-bottom: 4px;
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-}
-
-.featured-points__item dt::before {
-  content: '◆';
-  font-size: 0.75rem;
-  color: #d4af37;
-}
-
-.featured-points__item dd {
-  color: var(--color_text_sub2);
-  font-size: 0.875rem;
-  padding-left: 1rem;
-}
-
-@media (max-width: 576px) {
-  .featured-points__meta-row {
-    flex-direction: column;
-    gap: 4px;
-  }
-}
 
 /* 実績一覧 */
 .other-works__item {
   opacity: 0;
 }
 
-.other-works-heading {
+.other-works__heading {
   margin-bottom: 1.5rem;
 }
 
-.other-works-heading__title {
-  color: var(--color_text_main);
-  font-size: 1.25rem;
+.other-works__heading-text {
+  font-size: 1.5rem;
   font-weight: bold;
   line-height: 1;
   text-align: center;
 }
 
-.other-works {
+.other-works__contents {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
   gap: 1.75rem;
@@ -882,20 +1027,18 @@ const scrollToSection = (targetId) => {
 
 .other-works__item {
   transform: translateY(32px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
   overflow: hidden;
-  background: rgba(15, 23, 42, 0.7);
+  background: var(--color_surface);
   backdrop-filter: blur(10px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   will-change: transform, opacity;
 }
 
 .other-works__item:hover {
   transform: translateY(-6px) !important;
-  border-color: rgba(212, 175, 55, 0.5);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+  border-color: var(--color_accent);
+  box-shadow: 0 0 18px 4px var(--color_accent_tr);
 }
 
 .other-works__link {
@@ -929,25 +1072,25 @@ const scrollToSection = (targetId) => {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #64748b;
-  font-size: 0.9rem;
+  color: var(--color_base);
+  font-size: 0.875rem;
 }
 
 /* 実績 詳細 */
 .other-works__body {
-  padding: 20px;
+  padding: 1.125rem 1rem;
 }
 
 .other-works__title {
+  color: var(--color_text_main);
   font-size: 1.15rem;
   font-weight: 600;
   margin: 0 0 8px;
-  color: var(--color_text_main);
 }
 
 .other-works__stack {
   font-size: 0.85rem;
-  color: var(--color_text_sub2);
+  color: var(--color_text_muted);
   margin: 0;
 }
 
@@ -957,10 +1100,199 @@ const scrollToSection = (targetId) => {
   }
 }
 
-/* スキル */
-.skills {
+
+
+/* 守秘義務案件 */
+.private-works {
+  margin-top: 3.75rem;
+}
+.private-works__box {
+  background-color: var(--color_surface);
+  padding: 2.5rem 2rem;
 }
 
+.private-works__headline-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.private-works__headline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 4px;
+  position: relative;
+}
+
+.private-works__title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  line-height: 1.1;
+}
+
+.private-works__title-en {
+  color: var(--color_accent);
+  font-size: 0.75rem;
+  opacity: 0.75;
+  padding: 3px 8px;
+}
+
+.private-works__count {
+  color: var(--color_text_muted);
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+}
+
+.private-works__desc {
+  color: var(--color_text_muted);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/* 案件リスト */
+.private-works__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.private-works__item {
+  color: var(--color_text_muted);
+}
+
+
+
+/* 詳細あり案件 */
+.private-works-detail {
+  padding: 1rem 1.125rem;
+}
+
+.private-works-detail__headline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.private-works-detail__tag {
+  background-color: var(--color_sub);
+  border-radius: 4px;
+  color: var(--color_white);
+  font-size: 0.875rem;
+  font-weight: bold;
+  line-height: 1;
+  padding: 6px 12px;
+  white-space: nowrap;
+}
+
+.private-works-detail__title {
+  color: var(--color_text_main);
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.private-works-detail__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+}
+
+.private-works-detail__item {
+  display: flex;
+  gap: 12px;
+  font-size: 0.875rem;
+  line-height: 1.65;
+}
+
+.private-works-detail__item dt {
+  color: var(--color_accent);
+  font-weight: bold;
+  min-width: 2.2rem;
+}
+
+
+
+/* 他の案件 */
+.private-works-simple {
+  display: grid;
+  gap: .5rem;
+  margin-top: 0.5rem;
+}
+
+.private-works-simple__item {
+  color: var(--color_text_main);
+  font-size: 0.875rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.private-works-simple__item::before {
+  content: '';
+  border-radius: 50%;
+  background-color: var(--color_accent);
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 5px;
+  height: 5px;
+}
+
+
+
+.private-works__bottom {
+  margin-top: 2rem;
+  text-align: right;
+}
+
+.private-works__note {
+  font-size: 0.875rem;
+  color: var(--color_text_muted);
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.private-works__check {
+  color: var(--color_sub);
+  font-weight: bold;
+}
+
+
+
+@media (max-width: 992px) {
+  .private-works-simple {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .private-works {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .private-works-detail__headline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .private-works-detail__item {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .private-works__bottom {
+    text-align: left;
+  }
+}
+
+
+
+/* スキル */
 .skills__contents {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -968,45 +1300,33 @@ const scrollToSection = (targetId) => {
 }
 
 .skills__box {
-  background: rgba(15, 23, 42, 0.7);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  /* border-radius: 12px; */
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  background: var(--color_surface);
   padding: 1.5rem 1.75rem;
-
 }
 
 .skills__box.full-width {
-  border-top: 2px solid #d4af37;
   grid-column: 1 / -1;
 }
 
-.card-header-line {
+.skills__headline {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 0.75rem;
   margin-bottom: 1rem;
 }
 
-.skills__lead {
+.skills__title-en {
   color: var(--color_accent);
-  background: rgba(253, 224, 71, 0.12);
-  border-radius: 4px;
   font-size: 0.75rem;
-  font-weight: bold;
-  padding: 3px 0.5rem;
-}
-
-.skills__lead.highlight {
-  color: #f59e0b;
-  background: rgba(245, 158, 11, 0.15);
+  opacity: 0.75;
+  /* white-space: nowrap; */
 }
 
 .skills__title {
-  color: var(--color_text_main);
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   font-weight: bold;
+  line-height: 1.1;
 }
 
 .skills__list {
@@ -1016,16 +1336,16 @@ const scrollToSection = (targetId) => {
 }
 
 .skills__item {
-  color: var(--color_text_sub);
+  color: var(--color_text_muted);
   font-size: 1rem;
   position: relative;
-  padding-left: 18px;
+  padding-left: 1rem;
 }
 
 .skills__item::before {
   content: '';
   border-radius: 50%;
-  background-color: #d4af37;
+  background-color: var(--color_accent);
   position: absolute;
   left: 0;
   top: 10px;
@@ -1036,7 +1356,6 @@ const scrollToSection = (targetId) => {
 .skills__item strong {
   color: var(--color_text_main);
   font-weight: bold;
-  /* display: inline; */
 }
 
 @media (max-width: 992px) {
@@ -1055,7 +1374,8 @@ const scrollToSection = (targetId) => {
   }
 }
 
-/* スコープ（2列構成） */
+
+
 .scope-columns {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1063,7 +1383,6 @@ const scrollToSection = (targetId) => {
 }
 
 .scope-columns__title {
-  color: var(--color_text_main);
   font-size: 1rem;
   font-weight: bold;
   margin-bottom: 10px;
@@ -1074,14 +1393,13 @@ const scrollToSection = (targetId) => {
 
 .scope-columns__title::before {
   content: '✓';
-  color: var(--color_accent);
+  color: var(--color_sub);
   font-weight: bold;
 }
 
 .scope-columns__desc {
-  color: var(--color_text_sub);
-  font-size: 0.9rem;
-  line-height: 1.75;
+  color: var(--color_base-light);
+  font-size: 0.875rem;
 }
 
 @media (max-width: 992px) {

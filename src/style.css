@@ -52,13 +52,29 @@
 
 :root {
   --color_white: #fff;
-  --color_accent: #fde047;
+
+  /* --color_base: #1A3263;
+  --color_main: #547792;
+  --color_sub: #E8E2DB;
+  --color_accent: #FAB95B; */
+
+  --color_base: #050B14;
+  --color_base-light: #c5d6f0;
+  --color_sub: #38BDF8;
+  --color_sub_light: rgba(56,189,248, 0.2);
+  --color_accent: #d4af37;
+  --color_accent_light: #fde047;
+  --color_accent_tr: rgba(212,175,55, 0.2);
+
+  --color_surface: rgba(15, 23, 42, 0.75);
+
+  --bg2: #FFFFFFCB;
+  --bg3: #fcf1f7;
+
   --color_text_main: #f8fafc;
   --color_text_sub: #cbd5e1;
-  --color_text_sub2: #94a3b8;
-  --color_text_dark: #04070f;
-  --color_line: #d4af37;
-  /* --color_line: #f59e0b; */
+  --color_text_muted: #94a3b8;
+  --color_text_dark: #050b14;
 
   --font_mplus1p: "M PLUS 1p", sans-serif;
   --font_josefin: "Josefin Sans", sans-serif;
@@ -75,7 +91,7 @@ html {
 }
 
 body {
-  color: #f8fafc;
+  color: var(--color_text_main);
   background-color: #04070f;
   font-family: var(--font_mplus1p);
   font-size: 1em;
@@ -181,4 +197,41 @@ ul {
 	.sm-none-br {
 		display: none;
 	}
+}
+
+
+/* 交差するフレーム */
+.intersecting-frames-wrapper {
+  padding: 10px 0;
+  position: relative;
+}
+
+.intersecting-frames {
+  border-top: 1px solid var(--color_accent);
+  border-bottom: 1px solid var(--color_accent);
+  padding: 1px 10px;
+}
+
+.intersecting-frames-inner::before,
+.intersecting-frames-inner::after {
+  content: '';
+  background-color: var(--color_accent);
+  position: absolute;
+  width: 1px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: calc(100%);
+}
+
+.intersecting-frames-inner::before {
+  left: 10px;
+}
+
+.intersecting-frames-inner::after {
+  right: 10px;
+}
+
+/* 枠線フレーム */
+.border-frames {
+  border: 1px solid var(--color_accent);
 }

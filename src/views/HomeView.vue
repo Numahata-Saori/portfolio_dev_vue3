@@ -386,7 +386,7 @@ const scrollToSection = (targetId) => {
                 </div>
 
                 <div class="private-works__list">
-                  <article class="private-works__item private-works-detail border-frames">
+                  <article class="private-works__item private-works-detail">
                     <div class="private-works-detail__headline">
                       <span class="private-works-detail__tag">リニューアル</span>
                       <h4 class="private-works-detail__title">映像制作会社 コーポレートサイト（トップページ ＋ 下層4P）</h4>
@@ -407,7 +407,7 @@ const scrollToSection = (targetId) => {
                     </dl>
                   </article>
 
-                  <article class="private-works__item private-works-detail border-frames">
+                  <article class="private-works__item private-works-detail">
                     <div class="private-works-detail__headline">
                       <span class="private-works-detail__tag">リニューアル</span>
                       <h4 class="private-works-detail__title">子供向けダンス教室 ホームページ（トップページ ＋ 下層9P）</h4>
@@ -428,7 +428,7 @@ const scrollToSection = (targetId) => {
                     </dl>
                   </article>
 
-                  <article class="private-works__item private-works-detail border-frames">
+                  <article class="private-works__item private-works-detail">
                     <div class="private-works-detail__headline">
                       <span class="private-works-detail__tag">リニューアル</span>
                       <h4 class="private-works-detail__title">古美術買取専門店 ホームページ（トップページ ＋ 下層1P）</h4>
@@ -1231,14 +1231,12 @@ const scrollToSection = (targetId) => {
   gap: 1.5rem;
 }
 
-.private-works__item {
-  color: var(--color_text_muted);
-}
-
 
 
 /* 詳細あり案件 */
 .private-works-detail {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color_text_muted);
   padding: 1rem 1.125rem;
 }
 

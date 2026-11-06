@@ -81,13 +81,22 @@ onMounted(async () => {
     })
   })
 
-  observeElement('.skills__contents', () => {
-    animate('.skills__box', {
+  observeElement('.featured-work', () => {
+    // Worksの見出し
+    animate('.works .section-heading', {
       opacity: [0, 1],
-      translateY: [16, 0],
-      delay: stagger(100, { start: 150 }),
-      duration: 1000,
-      ease: 'outQuad',
+      translateY: [20, 0],
+      duration: 800,
+      ease: 'outExpo',
+    })
+
+    // 代表実績のタイトル帯と中身
+    animate('.featured-work__heading, .featured-work__content', {
+      opacity: [0, 1],
+      translateY: [24, 0],
+      delay: stagger(120, { start: 100 }),
+      duration: 900,
+      ease: 'outExpo',
     })
   })
 
@@ -106,23 +115,20 @@ onMounted(async () => {
 
     await nextTick() // works.valueを取得後に、非同期のDOM再描画
 
-    observeElement('.featured-work', () => {
-      animate('.featured-work__content', {
+    observeElement('.other-works', () => {
+      animate('.other-works__heading', {
         opacity: [0, 1],
-        translateY: [24, 0],
-        delay: stagger(100),
-        duration: 1000,
+        translateY: [20, 0],
+        duration: 700,
         ease: 'outExpo',
       })
-    })
 
-    observeElement('.other-works__contents', () => {
       animate('.other-works__item', {
-        opacity: [0, 1], // 透明度：0 → 1
-        translateY: [32, 0], // Y軸位置：32px下 → 元の位置
-        delay: stagger(100, { start: 150 }), // 1枚ごとに100msずつ遅延（150ms後に開始）
-        duration: 1000, // アニメーション時間
-        ease: 'outExpo', // アニメーション速度
+        opacity: [0, 1],
+        translateY: [28, 0],
+        delay: stagger(100, { start: 150 }),
+        duration: 900,
+        ease: 'outExpo',
       })
     })
 
@@ -130,6 +136,60 @@ onMounted(async () => {
     errorMsg.value = `データの取得に失敗しました: ${err.message}`
     loading.value = false
   }
+
+  observeElement('.private-works', () => {
+    animate('.private-works__headline-area', {
+      opacity: [0, 1],
+      translateY: [20, 0],
+      duration: 700,
+      ease: 'outExpo',
+    })
+
+    // 詳細カード 3件
+    animate('.private-works__item', {
+      opacity: [0, 1],
+      translateY: [24, 0],
+      delay: stagger(100, { start: 150 }),
+      duration: 800,
+      ease: 'outExpo',
+    })
+
+    // リスト案件 4件
+    animate('.private-works-simple__item', {
+      opacity: [0, 1],
+      translateY: [16, 0],
+      delay: stagger(80, { start: 400 }),
+      duration: 700,
+      ease: 'outExpo',
+    })
+
+    // 下部の注記
+    animate('.private-works__bottom', {
+      opacity: [0, 1],
+      duration: 600,
+      delay: 600,
+      ease: 'outQuad',
+    })
+  })
+
+  observeElement('.skills', () => {
+    // Skills の見出し（クラスを限定）
+    animate('.skills .section-heading', {
+      opacity: [0, 1],
+      translateY: [20, 0],
+      duration: 800,
+      ease: 'outExpo',
+    })
+
+    // スキルカード群
+    animate('.skills__box', {
+      opacity: [0, 1],
+      translateY: [20, 0],
+      delay: stagger(100, { start: 150 }),
+      duration: 900,
+      ease: 'outExpo',
+    })
+  })
 })
 
 const scrollToSection = (targetId) => {
@@ -205,9 +265,8 @@ const scrollToSection = (targetId) => {
               <div class="featured-work__box intersecting-frames-inner">
                 <div class="featured-work__heading">
                   <h3 class="featured-work__heading-text txt-en">FEATURED CASE</h3>
+                  <p class="featured-work__category txt-en">Web Design & Front-End</p>
                 </div>
-
-                <p class="featured-work__category txt-en">Web Design & Front-End</p>
 
                 <div class="featured-work__content">
                   <div class="featured-work__visual">
@@ -216,7 +275,7 @@ const scrollToSection = (targetId) => {
                         <span class="browser-mock__dot"></span>
                         <span class="browser-mock__dot"></span>
                         <span class="browser-mock__dot"></span>
-                        <span class="browser-mock__address">https://intro.autohub-dev.com/</span>
+                        <a href="https://intro.autohub-dev.com/" target="_blank" rel="noopener noreferrer" class="browser-mock__address">https://intro.autohub-dev.com/</a>
                       </div>
                       <div class="browser-mock__viewport">
                         <img
@@ -700,6 +759,7 @@ const scrollToSection = (targetId) => {
   justify-content: center;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
+  opacity: 0;
 }
 
 .section-title {
@@ -759,6 +819,7 @@ const scrollToSection = (targetId) => {
 }
 
 /* 注目作品 */
+.featured-work__heading,
 .featured-work__content {
   opacity: 0;
 }
@@ -776,6 +837,7 @@ const scrollToSection = (targetId) => {
 .featured-work__heading {
   color: var(--color_white);
   display: inline-block;
+  margin-bottom: 24px;
 }
 
 .featured-work__heading-text {
@@ -790,7 +852,6 @@ const scrollToSection = (targetId) => {
   font-weight: bold;
   color: var(--color_text_muted);
   line-height: 1.1;
-  margin-bottom: 24px;
   padding-top: .5rem;
 }
 
@@ -940,9 +1001,13 @@ const scrollToSection = (targetId) => {
 .browser-mock__dot:nth-child(3) { background: #10b981; }
 
 .browser-mock__address {
-  color: #94a3b8;
+  color: var(--color_text_muted);
   font-size: 0.75rem;
   margin-left: 8px;
+}
+
+.browser-mock__address:hover {
+  text-decoration: underline;
 }
 
 /* スクロール可能なビューポート */
@@ -986,7 +1051,7 @@ const scrollToSection = (targetId) => {
 
 .browser-mock__hint span {
   color: var(--color_base);
-  background: var(--color_accent);
+  background: var(--color_accent_light);
   backdrop-filter: blur(4px);
   padding: 6px 10px 4px;
   border-radius: 100vh;
@@ -1004,6 +1069,7 @@ const scrollToSection = (targetId) => {
 
 
 /* 実績一覧 */
+.other-works__heading,
 .other-works__item {
   opacity: 0;
 }
@@ -1103,6 +1169,13 @@ const scrollToSection = (targetId) => {
 
 
 /* 守秘義務案件 */
+.private-works__headline-area,
+.private-works__item,
+.private-works-simple__item,
+.private-works__bottom {
+  opacity: 0;
+}
+
 .private-works {
   margin-top: 3.75rem;
 }
@@ -1293,6 +1366,10 @@ const scrollToSection = (targetId) => {
 
 
 /* スキル */
+.skills__box {
+  opacity: 0;
+}
+
 .skills__contents {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

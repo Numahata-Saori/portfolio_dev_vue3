@@ -52,7 +52,7 @@ onMounted(async () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          // 要素が画面内に20%ほど入ってきたら発火
+          // 要素が画面内に入ってきたら発火
           if (entry.isIntersecting) {
             onEnter()
             observer.unobserve(entry.target) // 1回発火したら監視を解除して負荷軽減
@@ -134,7 +134,7 @@ onMounted(async () => {
 
   } catch (err) {
     errorMsg.value = `データの取得に失敗しました: ${err.message}`
-    loading.value = false
+    loading.value = false // 読み込み中を解除
   }
 
   observeElement('.private-works', () => {
@@ -145,7 +145,7 @@ onMounted(async () => {
       ease: 'outExpo',
     })
 
-    // 詳細カード 3件
+    // 詳細カード
     animate('.private-works__item', {
       opacity: [0, 1],
       translateY: [24, 0],
@@ -154,7 +154,7 @@ onMounted(async () => {
       ease: 'outExpo',
     })
 
-    // リスト案件 4件
+    // リスト案件
     animate('.private-works-simple__item', {
       opacity: [0, 1],
       translateY: [16, 0],
@@ -163,7 +163,7 @@ onMounted(async () => {
       ease: 'outExpo',
     })
 
-    // 下部の注記
+    // 下部注記
     animate('.private-works__bottom', {
       opacity: [0, 1],
       duration: 600,
@@ -173,7 +173,7 @@ onMounted(async () => {
   })
 
   observeElement('.skills', () => {
-    // Skills の見出し（クラスを限定）
+    // Skills の見出し
     animate('.skills .section-heading', {
       opacity: [0, 1],
       translateY: [20, 0],
@@ -181,7 +181,7 @@ onMounted(async () => {
       ease: 'outExpo',
     })
 
-    // スキルカード群
+    // スキルカード
     animate('.skills__box', {
       opacity: [0, 1],
       translateY: [20, 0],
@@ -190,6 +190,37 @@ onMounted(async () => {
       ease: 'outExpo',
     })
   })
+
+  /**
+   * スクロール監視
+   * ThreeBackground.vue ループ一時停止
+   */
+  const loopStopArea = document.querySelector('.bg-grid')
+  if (loopStopArea) {
+    // 要素が画面に入ってきたら検知
+    const themeObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const isWhiteArea = entry.isIntersecting
+          const appLayout = document.querySelector('.app-layout')
+
+          // 要素が画面内に入ってきたら発火
+          if (isWhiteArea) {
+            appLayout?.classList.add('is-grid-active')
+            // Three.jsの描画を停止
+            window.dispatchEvent(new CustomEvent('toggle-three-pause', { detail: { pause: true } }))
+          } else {
+            appLayout?.classList.remove('is-grid-active')
+            // Three.jsの描画を再開
+            window.dispatchEvent(new CustomEvent('toggle-three-pause', { detail: { pause: false } }))
+          }
+        })
+      },
+      // 画面上部35%に入ってきたら発火
+      { rootMargin: '-35% 0px -40% 0px' }
+    )
+    themeObserver.observe(loopStopArea)
+  }
 })
 
 const scrollToSection = (targetId) => {
@@ -272,9 +303,9 @@ const scrollToSection = (targetId) => {
                   <div class="featured-work__visual">
                     <div class="browser-mock">
                       <div class="browser-mock__bar">
+                        <!-- <span class="browser-mock__dot"></span>
                         <span class="browser-mock__dot"></span>
-                        <span class="browser-mock__dot"></span>
-                        <span class="browser-mock__dot"></span>
+                        <span class="browser-mock__dot"></span> -->
                         <a href="https://intro.autohub-dev.com/" target="_blank" rel="noopener noreferrer" class="browser-mock__address">https://intro.autohub-dev.com/</a>
                       </div>
                       <div class="browser-mock__viewport">
@@ -555,6 +586,57 @@ const scrollToSection = (targetId) => {
 </template>
 
 <style scoped>
+/* ============================
+* 方眼背景
+* ========================= */
+.bg-grid {
+  background-color: transparent;
+  background-image:
+    linear-gradient(var(--color_bg_grid_line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color_bg_grid_line) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: center top;
+  padding-top: 5rem;
+
+  mask-image: linear-gradient(to bottom, transparent 0%, black 150px);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 150px);
+
+  opacity: 0;
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), background-color 1s ease;
+
+  position: relative;
+  z-index: 1;
+}
+
+:deep(.app-layout.is-grid-active) .bg-grid,
+.app-layout.is-grid-active .bg-grid {
+  opacity: 1;
+  background-color: var(--color_bg_grid_switch);
+}
+
+.bg-grid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+
+  background: linear-gradient(to bottom, transparent, var(--color_bg_grid_switch));
+  pointer-events: none;
+  transform: translateY(-100%);
+
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+:deep(.app-layout.is-grid-active) .bg-grid::before,
+.app-layout.is-grid-active .bg-grid::before {
+  opacity: 1;
+}
+
+
+
 /* FV */
 .fv__intro,
 .fv__title .char,
@@ -624,7 +706,7 @@ const scrollToSection = (targetId) => {
 .fv__scroll-text {
   font-size: 0.875rem;
   letter-spacing: 0.25em;
-  color: #94a3b8;
+  color: var(--color_text_muted);
   font-weight: 600;
 }
 
@@ -787,31 +869,6 @@ const scrollToSection = (targetId) => {
 
 
 
-.bg-grid {
-  background-color: #060d19;
-  background-image:
-    linear-gradient(rgba(212, 175, 55, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(212, 175, 55, 0.05) 1px, transparent 1px);
-  background-size: 40px 40px;
-  background-position: center top;
-  position: relative;
-  z-index: 1;
-}
-
-.bg-grid::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 120px;
-  background: linear-gradient(to bottom, transparent, #060d19);
-  pointer-events: none;
-  transform: translateY(-100%);
-}
-
-
-
 /* 実績 */
 .works {
   z-index: 2;
@@ -926,7 +983,7 @@ const scrollToSection = (targetId) => {
 }
 
 .featured-points__title {
-  color: var(--color_accent);
+  color: var(--color_sub);
   font-size: 1.125rem;
   font-weight: bold;
   line-height: 1.1;
@@ -989,7 +1046,7 @@ const scrollToSection = (targetId) => {
   gap: 8px;
 }
 
-.browser-mock__dot {
+/* .browser-mock__dot {
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.25);
   width: 9px;
@@ -998,7 +1055,7 @@ const scrollToSection = (targetId) => {
 
 .browser-mock__dot:nth-child(1) { background: #ef4444; }
 .browser-mock__dot:nth-child(2) { background: #f59e0b; }
-.browser-mock__dot:nth-child(3) { background: #10b981; }
+.browser-mock__dot:nth-child(3) { background: #10b981; } */
 
 .browser-mock__address {
   color: var(--color_text_muted);

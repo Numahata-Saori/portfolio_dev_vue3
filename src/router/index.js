@@ -22,16 +22,13 @@ const router = createRouter({
   routes,
 
   // ページ遷移時にスクロール位置を最上部へ戻す
-  // scrollBehavior() {
-  //   return { top: 0 }
-  // },
   scrollBehavior(to, from, savedPosition) {
     // ブラウザの「戻る / 進む」ボタン時は前回の閲覧位置を復元
     if (savedPosition) {
       return savedPosition
     }
 
-    // ハッシュ付きリンク（例: /#works や /#skills）への遷移時
+    // ハッシュ付きリンクへの遷移時
     if (to.hash) {
       return new Promise((resolve) => {
         // 遷移先ページのDOMが生成されるタイミングに合わせてわずかに待機

@@ -1,55 +1,3 @@
-/* :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-} */
-
 :root {
   --color_white: #fff;
 
@@ -58,24 +6,27 @@
   --color_sub: #E8E2DB;
   --color_accent: #FAB95B; */
 
-  --color_base: #050B14;
-  --color_base-light: #c5d6f0;
-  --color_sub: #38BDF8;
-  --color_sub_light: rgba(56,189,248, 0.2);
+  --color_base: #04070f;
+  --color_surface: rgba(15, 23, 42, 0.75);
+  --color_surface_sub: rgba(255, 255, 255, 0.08);
+  --color_bg_grid_line: rgba(56, 189, 248, 0.06);
+  --color_bg_grid_switch: rgba(6, 13, 25, 1);
+
+  /* アクセントカラー（夜空・真鍮・シアン） */
   --color_accent: #d4af37;
   --color_accent_light: #fde047;
   --color_accent_tr: rgba(212,175,55, 0.2);
+  --color_sub: #38BDF8;
+  --color_sub_light: rgba(56,189,248, 0.2);
+  --color_base-light: #c5d6f0;
 
-  --color_surface: rgba(15, 23, 42, 0.75);
-
-  --bg2: #FFFFFFCB;
-  --bg3: #fcf1f7;
-
+  /* テキストカラー */
   --color_text_main: #f8fafc;
   --color_text_sub: #cbd5e1;
   --color_text_muted: #94a3b8;
   --color_text_dark: #050b14;
 
+  /* フォント */
   --font_mplus1p: "M PLUS 1p", sans-serif;
   --font_josefin: "Josefin Sans", sans-serif;
 }
@@ -169,16 +120,10 @@ ul {
   }
 }
 
-/* ============================
-* 英語
-* ========================= */
 .txt-en {
   font-family: var(--font_josefin);
 }
 
-/* ============================
-* 改行
-* ========================= */
 .xl-none-br {
 	display: none;
 }
@@ -200,6 +145,10 @@ ul {
 }
 
 
+
+/* ============================
+* 共通フレーム装飾
+* ========================= */
 /* 交差するフレーム */
 .intersecting-frames-wrapper {
   padding: 10px 0;

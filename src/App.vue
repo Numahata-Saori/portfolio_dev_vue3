@@ -40,7 +40,7 @@ import ThreeBackground from './components/ThreeBackground.vue'
 }
 
 .site-header {
-  border-bottom: 1px solid var(--color_surface_sub);
+  border-bottom: 1px solid var(--color-surface-contents);
   background: rgba(7, 12, 24, 0.7);
   backdrop-filter: blur(12px);
 
@@ -67,12 +67,12 @@ import ThreeBackground from './components/ThreeBackground.vue'
   font-size: 1.15rem;
   font-weight: bold;
   text-decoration: none;
-  color: var(--color_text_main);
+  color: var(--color-text-main);
   transition: color 0.3s ease;
 }
 
 .site-logo:hover {
-  color: var(--color_accent);
+  color: var(--color-accent);
 }
 
 .site-nav {
@@ -82,7 +82,7 @@ import ThreeBackground from './components/ThreeBackground.vue'
 
 .site-nav__link {
   text-decoration: none;
-  color: var(--color_text_muted);
+  color: var(--color-text-muted);
   font-size: 0.9rem;
   font-weight: 500;
   letter-spacing: 0.05em;
@@ -90,7 +90,7 @@ import ThreeBackground from './components/ThreeBackground.vue'
 }
 
 .site-nav__link:hover {
-  color: var(--color_text_main);
+  color: var(--color-text-main);
 }
 
 .site-main {
@@ -100,10 +100,10 @@ import ThreeBackground from './components/ThreeBackground.vue'
 }
 
 .site-footer {
-  border-top: 1px solid var(--color_surface_sub);
+  border-top: 1px solid var(--color-surface-contents);
   background: rgba(4, 7, 15, 0.8);
   backdrop-filter: blur(8px);
-  color: var(--color_text_muted);
+  color: var(--color-text-muted);
   font-size: 0.85rem;
   text-align: center;
   padding: 32px 20px;

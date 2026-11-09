@@ -592,8 +592,8 @@ const scrollToSection = (targetId) => {
 .bg-grid {
   background-color: transparent;
   background-image:
-    linear-gradient(var(--color_bg_grid_line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--color_bg_grid_line) 1px, transparent 1px);
+    linear-gradient(var(--color-bg-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-bg-grid-line) 1px, transparent 1px);
   background-size: 32px 32px;
   background-position: center top;
   padding-top: 5rem;
@@ -611,7 +611,7 @@ const scrollToSection = (targetId) => {
 :deep(.app-layout.is-grid-active) .bg-grid,
 .app-layout.is-grid-active .bg-grid {
   opacity: 1;
-  background-color: var(--color_bg_grid_switch);
+  background-color: var(--color-bg-grid-switch);
 }
 
 .bg-grid::before {
@@ -622,7 +622,7 @@ const scrollToSection = (targetId) => {
   width: 100%;
   height: 120px;
 
-  background: linear-gradient(to bottom, transparent, var(--color_bg_grid_switch));
+  background: linear-gradient(to bottom, transparent, var(--color-bg-grid-switch));
   pointer-events: none;
   transform: translateY(-100%);
 
@@ -667,7 +667,7 @@ const scrollToSection = (targetId) => {
   font-size: 1.125rem;
   letter-spacing: 0.22em;
   font-weight: 700;
-  color: var(--color_accent);
+  color: var(--color-accent);
   margin: 0 0 16px;
   text-shadow: 0 2px 10px rgba(253, 224, 71, 0.25);
 }
@@ -677,7 +677,7 @@ const scrollToSection = (targetId) => {
   font-weight: bold;
   letter-spacing: 0.02em;
   line-height: 1.1;
-  color: var(--color_white);
+  color: var(--color-white);
   margin: 0;
   display: flex;
   justify-content: center;
@@ -706,14 +706,14 @@ const scrollToSection = (targetId) => {
 .fv__scroll-text {
   font-size: 0.875rem;
   letter-spacing: 0.25em;
-  color: var(--color_text_muted);
+  color: var(--color-text-muted);
   font-weight: 600;
 }
 
 .fv__scroll-line {
   width: 1px;
   height: 38px;
-  background: linear-gradient(to bottom, var(--color_accent), transparent);
+  background: linear-gradient(to bottom, var(--color-accent), transparent);
   animation: scrollDown 2s infinite ease-in-out;
 }
 
@@ -739,7 +739,7 @@ const scrollToSection = (targetId) => {
 }
 
 .hero__lead {
-  color: var(--color_white);
+  color: var(--color-white);
   font-size: 1rem;
   text-align: center;
 }
@@ -755,7 +755,7 @@ const scrollToSection = (targetId) => {
 }
 
 .hero-skill__item {
-  background: var(--color_surface);
+  background: var(--color-surface);
   font-size: 1rem;
   display: flex;
   flex-direction: column;
@@ -767,7 +767,7 @@ const scrollToSection = (targetId) => {
 }
 
 .hero-skill__label {
-  color: var(--color_accent);
+  color: var(--color-accent);
   font-size: 1.75rem;
   font-weight: bold;
   line-height: 1;
@@ -790,7 +790,7 @@ const scrollToSection = (targetId) => {
   height: 0.875rem;
   margin: 0 6px;
   border-radius: 100vh;
-  background-color: var(--color_sub);
+  background-color: var(--color-sub);
 }
 
 .hero-skill__text .arrow::before,
@@ -802,7 +802,7 @@ const scrollToSection = (targetId) => {
   width: 1px;
   height: 8px;
   border-radius: 100vh;
-  background-color: var(--color_sub);
+  background-color: var(--color-sub);
   transform-origin: 50% calc(100% - .5px);
 }
 
@@ -860,7 +860,7 @@ const scrollToSection = (targetId) => {
   font-size: 1rem;
   padding: 40px 0;
   text-align: center;
-  color: var(--color_text_muted);
+  color: var(--color-text-muted);
 }
 
 .state-text.error {
@@ -887,18 +887,18 @@ const scrollToSection = (targetId) => {
 }
 
 .featured-work__box {
-  background: var(--color_surface);
+  background: var(--color-surface);
   padding: 2rem 2rem;
 }
 
 .featured-work__heading {
-  color: var(--color_white);
+  color: var(--color-white);
   display: inline-block;
   margin-bottom: 24px;
 }
 
 .featured-work__heading-text {
-  color: var(--color_accent);
+  color: var(--color-accent);
   font-size: 1.75rem;
   font-weight: bold;
   line-height: 1;
@@ -907,7 +907,7 @@ const scrollToSection = (targetId) => {
 .featured-work__category {
   font-size: 1rem;
   font-weight: bold;
-  color: var(--color_text_muted);
+  color: var(--color-text-muted);
   line-height: 1.1;
   padding-top: .5rem;
 }
@@ -943,7 +943,7 @@ const scrollToSection = (targetId) => {
 
 /* 詳細解説 */
 .featured-info__title {
-  color: var(--color_accent);
+  color: var(--color-accent);
   font-size: 1.45rem;
   font-weight: 700;
   line-height: 1.1;
@@ -955,7 +955,7 @@ const scrollToSection = (targetId) => {
 }
 
 .featured-meta {
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--color-surface-contents);
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -970,7 +970,7 @@ const scrollToSection = (targetId) => {
 }
 
 .featured-meta__label {
-  color: var(--color_sub);
+  color: var(--color-sub);
   font-size: 1.125rem;
   font-weight: bold;
   line-height: 1;
@@ -978,12 +978,12 @@ const scrollToSection = (targetId) => {
 }
 
 .featured-meta__text {
-  color: var(--color_text_sub);
+  color: var(--color-text-sub);
   font-size: 0.875rem;
 }
 
 .featured-points__title {
-  color: var(--color_sub);
+  color: var(--color-sub);
   font-size: 1.125rem;
   font-weight: bold;
   line-height: 1.1;
@@ -997,8 +997,8 @@ const scrollToSection = (targetId) => {
 }
 
 .featured-points__item dt {
-  color: var(--color_text_main);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--color-text-main);
+  border-bottom: 1px solid var(--color-surface-contents);
   font-size: 1rem;
   font-weight: bold;
   display: flex;
@@ -1011,11 +1011,11 @@ const scrollToSection = (targetId) => {
 .featured-points__item dt::before {
   content: '◆';
   font-size: 0.65rem;
-  color: var(--color_accent);
+  color: var(--color-accent);
 }
 
 .featured-points__item dd {
-  color: var(--color_text_muted);
+  color: var(--color-text-muted);
   font-size: 0.875rem;
 }
 
@@ -1039,7 +1039,7 @@ const scrollToSection = (targetId) => {
 
 .browser-mock__bar {
   background: #1e293b;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--color-surface-contents);
   padding: 10px 14px;
   display: flex;
   align-items: center;
@@ -1058,7 +1058,7 @@ const scrollToSection = (targetId) => {
 .browser-mock__dot:nth-child(3) { background: #10b981; } */
 
 .browser-mock__address {
-  color: var(--color_text_muted);
+  color: var(--color-text-muted);
   font-size: 0.75rem;
   margin-left: 8px;
 }
@@ -1107,8 +1107,8 @@ const scrollToSection = (targetId) => {
 }
 
 .browser-mock__hint span {
-  color: var(--color_base);
-  background: var(--color_accent_light);
+  color: var(--color-base);
+  background: var(--color-accent-light);
   backdrop-filter: blur(4px);
   padding: 6px 10px 4px;
   border-radius: 100vh;
@@ -1151,17 +1151,17 @@ const scrollToSection = (targetId) => {
 .other-works__item {
   transform: translateY(32px);
   overflow: hidden;
-  background: var(--color_surface);
+  background: var(--color-surface);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--color-surface-contents);
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   will-change: transform, opacity;
 }
 
 .other-works__item:hover {
   transform: translateY(-6px) !important;
-  border-color: var(--color_accent);
-  box-shadow: 0 0 18px 4px var(--color_accent_tr);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 18px 4px var(--color-accent-tr);
 }
 
 .other-works__link {
@@ -1195,7 +1195,7 @@ const scrollToSection = (targetId) => {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color_base);
+  color: var(--color-base);
   font-size: 0.875rem;
 }
 
@@ -1205,7 +1205,7 @@ const scrollToSection = (targetId) => {
 }
 
 .other-works__title {
-  color: var(--color_text_main);
+  color: var(--color-text-main);
   font-size: 1.15rem;
   font-weight: 600;
   margin: 0 0 8px;
@@ -1213,7 +1213,7 @@ const scrollToSection = (targetId) => {
 
 .other-works__stack {
   font-size: 0.85rem;
-  color: var(--color_text_muted);
+  color: var(--color-text-muted);
   margin: 0;
 }
 
@@ -1237,7 +1237,7 @@ const scrollToSection = (targetId) => {
   margin-top: 3.75rem;
 }
 .private-works__box {
-  background-color: var(--color_surface);
+  background-color: var(--color-surface);
   padding: 2.5rem 2rem;
 }
 
@@ -1263,20 +1263,20 @@ const scrollToSection = (targetId) => {
 }
 
 .private-works__title-en {
-  color: var(--color_accent);
+  color: var(--color-accent);
   font-size: 0.75rem;
   opacity: 0.75;
   padding: 3px 8px;
 }
 
 .private-works__count {
-  color: var(--color_text_muted);
+  color: var(--color-text-muted);
   font-size: 0.85rem;
   margin-bottom: 10px;
 }
 
 .private-works__desc {
-  color: var(--color_text_muted);
+  color: var(--color-text-muted);
   font-size: 0.875rem;
   text-align: center;
 }
@@ -1292,8 +1292,8 @@ const scrollToSection = (targetId) => {
 
 /* 詳細あり案件 */
 .private-works-detail {
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--color_text_muted);
+  background: var(--color-surface-contents);
+  color: var(--color-text-muted);
   padding: 1rem 1.125rem;
 }
 
@@ -1305,9 +1305,9 @@ const scrollToSection = (targetId) => {
 }
 
 .private-works-detail__tag {
-  background-color: var(--color_sub);
+  background-color: var(--color-sub);
   border-radius: 4px;
-  color: var(--color_white);
+  color: var(--color-white);
   font-size: 0.875rem;
   font-weight: bold;
   line-height: 1;
@@ -1316,7 +1316,7 @@ const scrollToSection = (targetId) => {
 }
 
 .private-works-detail__title {
-  color: var(--color_text_main);
+  color: var(--color-text-main);
   font-size: 1rem;
   font-weight: bold;
 }
@@ -1336,7 +1336,7 @@ const scrollToSection = (targetId) => {
 }
 
 .private-works-detail__item dt {
-  color: var(--color_accent);
+  color: var(--color-accent);
   font-weight: bold;
   min-width: 2.2rem;
 }
@@ -1351,7 +1351,7 @@ const scrollToSection = (targetId) => {
 }
 
 .private-works-simple__item {
-  color: var(--color_text_main);
+  color: var(--color-text-main);
   font-size: 0.875rem;
   padding-left: 1rem;
   position: relative;
@@ -1360,7 +1360,7 @@ const scrollToSection = (targetId) => {
 .private-works-simple__item::before {
   content: '';
   border-radius: 50%;
-  background-color: var(--color_accent);
+  background-color: var(--color-accent);
   position: absolute;
   left: 0;
   top: 9px;
@@ -1377,7 +1377,7 @@ const scrollToSection = (targetId) => {
 
 .private-works__note {
   font-size: 0.875rem;
-  color: var(--color_text_muted);
+  color: var(--color-text-muted);
   margin: 0;
   display: inline-flex;
   align-items: center;
@@ -1385,7 +1385,7 @@ const scrollToSection = (targetId) => {
 }
 
 .private-works__check {
-  color: var(--color_sub);
+  color: var(--color-sub);
   font-weight: bold;
 }
 
@@ -1432,7 +1432,7 @@ const scrollToSection = (targetId) => {
 }
 
 .skills__box {
-  background: var(--color_surface);
+  background: var(--color-surface);
   padding: 1.5rem 1.75rem;
 }
 
@@ -1449,7 +1449,7 @@ const scrollToSection = (targetId) => {
 }
 
 .skills__title-en {
-  color: var(--color_accent);
+  color: var(--color-accent);
   font-size: 0.75rem;
   opacity: 0.75;
   /* white-space: nowrap; */
@@ -1468,7 +1468,7 @@ const scrollToSection = (targetId) => {
 }
 
 .skills__item {
-  color: var(--color_text_muted);
+  color: var(--color-text-muted);
   font-size: 1rem;
   position: relative;
   padding-left: 1rem;
@@ -1477,7 +1477,7 @@ const scrollToSection = (targetId) => {
 .skills__item::before {
   content: '';
   border-radius: 50%;
-  background-color: var(--color_accent);
+  background-color: var(--color-accent);
   position: absolute;
   left: 0;
   top: 10px;
@@ -1486,7 +1486,7 @@ const scrollToSection = (targetId) => {
 }
 
 .skills__item strong {
-  color: var(--color_text_main);
+  color: var(--color-text-main);
   font-weight: bold;
 }
 
@@ -1525,12 +1525,12 @@ const scrollToSection = (targetId) => {
 
 .scope-columns__title::before {
   content: '✓';
-  color: var(--color_sub);
+  color: var(--color-sub);
   font-weight: bold;
 }
 
 .scope-columns__desc {
-  color: var(--color_base-light);
+  color: var(--color-base-light);
   font-size: 0.875rem;
 }
 

@@ -1,34 +1,34 @@
 :root {
-  --color_white: #fff;
+  --color-white: #fff;
 
-  /* --color_base: #1A3263;
-  --color_main: #547792;
-  --color_sub: #E8E2DB;
-  --color_accent: #FAB95B; */
+  /* --color-base: #1A3263;
+  --color-main: #547792;
+  --color-sub: #E8E2DB;
+  --color-accent: #FAB95B; */
 
-  --color_base: #04070f;
-  --color_surface: rgba(15, 23, 42, 0.75);
-  --color_surface_sub: rgba(255, 255, 255, 0.08);
-  --color_bg_grid_line: rgba(56, 189, 248, 0.06);
-  --color_bg_grid_switch: rgba(6, 13, 25, 1);
+  --color-base: #04070f;
+  --color-surface: rgba(15, 23, 42, 0.75);
+  --color-surface-contents: rgba(255, 255, 255, 0.08);
+  --color-bg-grid-line: rgba(56, 189, 248, 0.06);
+  --color-bg-grid-switch: rgba(6, 13, 25, 1);
 
   /* アクセントカラー（夜空・真鍮・シアン） */
-  --color_accent: #d4af37;
-  --color_accent_light: #fde047;
-  --color_accent_tr: rgba(212,175,55, 0.2);
-  --color_sub: #38BDF8;
-  --color_sub_light: rgba(56,189,248, 0.2);
-  --color_base-light: #c5d6f0;
+  --color-accent: #d4af37;
+  --color-accent-light: #fde047;
+  --color-accent-tr: rgba(212,175,55, 0.2);
+  --color-sub: #38BDF8;
+  --color-sub-light: rgba(56,189,248, 0.2);
+  --color-base-light: #c5d6f0;
 
   /* テキストカラー */
-  --color_text_main: #f8fafc;
-  --color_text_sub: #cbd5e1;
-  --color_text_muted: #94a3b8;
-  --color_text_dark: #050b14;
+  --color-text-main: #f8fafc;
+  --color-text-sub: #cbd5e1;
+  --color-text-muted: #94a3b8;
+  --color-text-dark: #050b14;
 
   /* フォント */
-  --font_mplus1p: "M PLUS 1p", sans-serif;
-  --font_josefin: "Josefin Sans", sans-serif;
+  --font-mplus1p: "M PLUS 1p", sans-serif;
+  --font-josefin: "Josefin Sans", sans-serif;
 }
 
 *, *::before, *::after {
@@ -42,9 +42,9 @@ html {
 }
 
 body {
-  color: var(--color_text_main);
+  color: var(--color-text-main);
   background-color: #04070f;
-  font-family: var(--font_mplus1p);
+  font-family: var(--font-mplus1p);
   font-size: 1em;
   font-style: normal;
 	font-weight: 400;
@@ -121,7 +121,7 @@ ul {
 }
 
 .txt-en {
-  font-family: var(--font_josefin);
+  font-family: var(--font-josefin);
 }
 
 .xl-none-br {
@@ -156,15 +156,15 @@ ul {
 }
 
 .intersecting-frames {
-  border-top: 1px solid var(--color_accent);
-  border-bottom: 1px solid var(--color_accent);
+  border-top: 1px solid var(--color-accent);
+  border-bottom: 1px solid var(--color-accent);
   padding: 1px 10px;
 }
 
 .intersecting-frames-inner::before,
 .intersecting-frames-inner::after {
   content: '';
-  background-color: var(--color_accent);
+  background-color: var(--color-accent);
   position: absolute;
   width: 1px;
   top: 50%;
@@ -182,5 +182,5 @@ ul {
 
 /* 枠線フレーム */
 .border-frames {
-  border: 1px solid var(--color_accent);
+  border: 1px solid var(--color-accent);
 }

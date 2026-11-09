@@ -291,77 +291,185 @@ const scrollToSection = (targetId) => {
             <h2 class="section-title txt-en">WORKS</h2>
           </div>
 
-          <article class="featured-work intersecting-frames-wrapper">
-            <div class="intersecting-frames">
-              <div class="featured-work__box intersecting-frames-inner">
-                <div class="featured-work__heading">
-                  <h3 class="featured-work__heading-text txt-en">FEATURED CASE</h3>
-                  <p class="featured-work__category txt-en">Web Design & Front-End</p>
-                </div>
+          <article class="featured-work">
+            <div class="featured-work__heading">
+              <h3 class="featured-work__heading-text txt-en">FEATURED CASE</h3>
+              <p class="featured-work__category txt-en">Web Design & Front-End</p>
+            </div>
 
-                <div class="featured-work__content">
-                  <div class="featured-work__visual">
-                    <div class="browser-mock">
-                      <div class="browser-mock__bar">
-                        <!-- <span class="browser-mock__dot"></span>
-                        <span class="browser-mock__dot"></span>
-                        <span class="browser-mock__dot"></span> -->
-                        <a href="https://intro.autohub-dev.com/" target="_blank" rel="noopener noreferrer" class="browser-mock__address">https://intro.autohub-dev.com/</a>
-                      </div>
-                      <div class="browser-mock__viewport">
-                        <img
-                          src="/autohub_lp1.png"
-                          alt="中古車輸出事業会社 LP 全体スクリーンショット"
-                          class="browser-mock__image"
-                          loading="lazy"
-                        />
-                        <div class="browser-mock__hint txt-en">
-                          <span>SCROLL TO VIEW</span>
+            <div class="featured-work__frame intersecting-frames-wrapper">
+              <div class="intersecting-frames">
+                <div class="featured-work__box intersecting-frames-inner">
+                  <div class="featured-work__content">
+                    <div class="featured-work__visual">
+                      <div class="browser-mock">
+                        <div class="browser-mock__bar">
+                          <a href="https://intro.autohub-dev.com/" target="_blank" rel="noopener noreferrer" class="browser-mock__address">https://intro.autohub-dev.com/</a>
+                        </div>
+                        <div class="browser-mock__viewport">
+                          <img
+                            src="/autohub_lp1.png"
+                            alt="中古車輸出事業会社 LP 全体スクリーンショット"
+                            class="browser-mock__image"
+                            loading="lazy"
+                          />
+                          <div class="browser-mock__hint txt-en">
+                            <span>SCROLL TO VIEW</span>
+                          </div>
                         </div>
                       </div>
+                    </div>
+
+                    <div class="featured-info">
+                      <h3 class="featured-info__title">中古車輸出事業会社 LP</h3>
+
+                      <div class="featured-meta">
+                        <div class="featured-meta__item">
+                          <p class="featured-meta__label txt-en">Scope</p>
+                          <p class="featured-meta__text">要件ヒアリング / 構成案・デザイン / コーディング一式（完全一人対応）</p>
+                        </div>
+                        <div class="featured-meta__item">
+                          <p class="featured-meta__label txt-en">Stack</p>
+                          <p class="featured-meta__text">HTML / CSS (BEM) / JavaScript / レスポンシブ対応<br>figma / Photoshop</p>
+                        </div>
+                        <div class="featured-meta__item">
+                          <p class="featured-meta__label txt-en">Results</p>
+                          <p class="featured-meta__text">ゼロからの専用LP立ち上げにより、公開後半年で累計50〜70件超の新規問い合わせを獲得</p>
+                        </div>
+                        <div class="featured-meta__item">
+                          <p class="featured-meta__label txt-en">Approach</p>
+                          <ul class="featured-points">
+                            <li class="featured-points__item">
+                              <dt>ゼロからのWeb導線確立（AIDCAS設計）</dt>
+                              <dd>
+                                元々は受け皿となる専用ページがなかったため、AIDCAS（注目・興味・欲求・確信・行動）に準拠した情報設計を実施。初めて訪れたユーザーでも不安なく問い合わせに至る導線をゼロから構築しました。
+                              </dd>
+                            </li>
+                            <li class="featured-points__item">
+                              <dt>「海と船」のコンセプトを表現する波シェイプ</dt>
+                              <dd>
+                                船の写真を大胆に使用しつつ、セクション境界に波シェイプを採用。「スクロールするほど船で目的地（お問い合わせ）へ近づいていく」ストーリー性を持たせ、離脱を防ぐ工夫を施しました。
+                              </dd>
+                            </li>
+                            <li class="featured-points__item">
+                              <dt>崩れのない堅牢なレスポンシブコーディング</dt>
+                              <dd>
+                                スマートフォンからPCまで閲覧環境を問わず世界観を損なわないよう、波の形状やフォントサイズのブレークポイントを綿密に設計。ヒアリングから納品まで責任を持って一人で完結させました。
+                              </dd>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <!-- <div class="featured-meta">
+                        <div class="featured-meta__item">
+                          <span class="featured-meta__label txt-en">Scope</span>
+                          <span class="featured-meta__text">要件ヒアリング / 構成案・デザイン / コーディング一式（完全一人対応）</span>
+                        </div>
+                        <div class="featured-meta__item">
+                          <span class="featured-meta__label txt-en">Stack</span>
+                          <span class="featured-meta__text">HTML / CSS (BEM) / JavaScript / レスポンシブ対応<br>figma / Photoshop</span>
+                        </div>
+                        <div class="featured-meta__item">
+                          <span class="featured-meta__label txt-en">Results</span>
+                          <span class="featured-meta__text">ゼロからの専用LP立ち上げにより、公開後半年で累計50〜70件超の新規問い合わせを獲得</span>
+                        </div>
+                      </div> -->
+
+                      <!-- <div class="featured-points">
+                        <h4 class="featured-points__title">設計・実装におけるこだわり</h4>
+                        <dl class="featured-points__list">
+                          <div class="featured-points__item">
+                            <dt>ゼロからのWeb導線確立（AIDCAS設計）</dt>
+                            <dd>
+                              元々は受け皿となる専用ページがなかったため、AIDCAS（注目・興味・欲求・確信・行動）に準拠した情報設計を実施。初めて訪れたユーザーでも不安なく問い合わせに至る導線をゼロから構築しました。
+                            </dd>
+                          </div>
+                          <div class="featured-points__item">
+                            <dt>「海と船」のコンセプトを表現する波シェイプ</dt>
+                            <dd>
+                              船の写真を大胆に使用しつつ、セクション境界に波シェイプを採用。「スクロールするほど船で目的地（お問い合わせ）へ近づいていく」ストーリー性を持たせ、離脱を防ぐ工夫を施しました。
+                            </dd>
+                          </div>
+                          <div class="featured-points__item">
+                            <dt>崩れのない堅牢なレスポンシブコーディング</dt>
+                            <dd>
+                              スマートフォンからPCまで閲覧環境を問わず世界観を損なわないよう、波の形状やフォントサイズのブレークポイントを綿密に設計。ヒアリングから納品まで責任を持って一人で完結させました。
+                            </dd>
+                          </div>
+                        </dl>
+                      </div> -->
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
 
-                  <div class="featured-info">
-                    <h3 class="featured-info__title">中古車輸出事業会社 LP</h3>
-
-                    <div class="featured-meta">
-                      <div class="featured-meta__item">
-                        <span class="featured-meta__label txt-en">Scope</span>
-                        <span class="featured-meta__text">要件ヒアリング / 構成案・デザイン / コーディング一式（完全一人対応）</span>
+            <div class="featured-work__frame intersecting-frames-wrapper">
+              <div class="intersecting-frames">
+                <div class="featured-work__box intersecting-frames-inner">
+                  <div class="featured-work__content">
+                    <div class="featured-work__visual">
+                      <div class="browser-mock">
+                        <!-- <div class="browser-mock__bar">
+                          <a href="https://intro.autohub-dev.com/" target="_blank" rel="noopener noreferrer" class="browser-mock__address">https://intro.autohub-dev.com/</a>
+                        </div> -->
+                        <div class="browser-mock__viewport">
+                          <img
+                            src="/exerciselp_00.jpg"
+                            alt="パーソナルトレーニングジムLP LP 全体スクリーンショット"
+                            class="browser-mock__image"
+                            loading="lazy"
+                          />
+                          <div class="browser-mock__hint txt-en">
+                            <span>SCROLL TO VIEW</span>
+                          </div>
+                        </div>
                       </div>
-                      <div class="featured-meta__item">
-                        <span class="featured-meta__label txt-en">Stack</span>
-                        <span class="featured-meta__text">HTML / CSS (BEM) / JavaScript / レスポンシブ対応<br>figma / Photoshop</span>
-                      </div>
-                      <div class="featured-meta__item">
-                        <span class="featured-meta__label txt-en">Results</span>
-                        <span class="featured-meta__text">ゼロからの専用LP立ち上げにより、公開後半年で累計50〜70件超の新規問い合わせを獲得</span>
-                      </div>
+                      <p class="featured-work__note">※個人情報保護のため、一部モザイク加工しております。</p>
                     </div>
 
-                    <div class="featured-points">
-                      <h4 class="featured-points__title">設計・実装におけるこだわり</h4>
-                      <dl class="featured-points__list">
-                        <div class="featured-points__item">
-                          <dt>ゼロからのWeb導線確立（AIDCAS設計）</dt>
-                          <dd>
-                            元々は受け皿となる専用ページがなかったため、AIDCAS（注目・興味・欲求・確信・行動）に準拠した情報設計を実施。初めて訪れたユーザーでも不安なく問い合わせに至る導線をゼロから構築しました。
-                          </dd>
+                    <div class="featured-info">
+                      <h3 class="featured-info__title">パーソナルトレーニングジムLP</h3>
+
+                      <div class="featured-meta">
+                        <div class="featured-meta__item">
+                          <p class="featured-meta__label txt-en">Scope</p>
+                          <p class="featured-meta__text">構成案・デザイン / コーディング一式（完全一人対応）/ WordPress実装<br>（制作期間：2週間 / 完全一人対応）</p>
                         </div>
-                        <div class="featured-points__item">
-                          <dt>「海と船」のコンセプトを表現する波シェイプ</dt>
-                          <dd>
-                            船の写真を大胆に使用しつつ、セクション境界に波シェイプを採用。「スクロールするほど船で目的地（お問い合わせ）へ近づいていく」ストーリー性を持たせ、離脱を防ぐ工夫を施しました。
-                          </dd>
+                        <div class="featured-meta__item">
+                          <p class="featured-meta__label txt-en">Stack</p>
+                          <p class="featured-meta__text">HTML / CSS (BEM) / JavaScript / WordPress（オリジナルテーマ） / レスポンシブ対応<br>figma / Photoshop</p>
                         </div>
-                        <div class="featured-points__item">
-                          <dt>崩れのない堅牢なレスポンシブコーディング</dt>
-                          <dd>
-                            スマートフォンからPCまで閲覧環境を問わず世界観を損なわないよう、波の形状やフォントサイズのブレークポイントを綿密に設計。ヒアリングから納品まで責任を持って一人で完結させました。
-                          </dd>
+                        <div class="featured-meta__item">
+                          <p class="featured-meta__label txt-en">Results</p>
+                          <p class="featured-meta__text">管理画面のカスタム設計により、専門知識不要で即日キャンペーン更新ができる運用体制を確立。<br>短納期（2週間）の中でデザインから公開まで遅延なく完結。</p>
                         </div>
-                      </dl>
+                        <div class="featured-meta__item">
+                          <p class="featured-meta__label txt-en">Approach</p>
+                          <ul class="featured-points">
+                            <li class="featured-points__item">
+                              <dt>運用の属人化を防ぐカスタム管理画面設計</dt>
+                              <dd>
+                                「キャンペーン内容を自分で簡単に更新したい」という課題に対し、クライアントがコードに触れることなく直感的にテキストやバナーを差し替えられるよう入力エリアを最適化。更新ミスを防ぎ、外部委託コストとタイムラグを削減しました。
+                              </dd>
+                            </li>
+                            <li class="featured-points__item">
+                              <dt>女性ターゲットに合わせた心理的ハードルを下げるビジュアル設計</dt>
+                              <dd>
+                                ジム通いへの敷居を下げるため、パステル基調の柔らかなトーン、角丸UI、手書き風のあしらいを採用。親しみやすさを担保しつつ、CTAボタンや重要な料金情報はアクセントカラーでコントラストを効かせ、視線誘導と信頼感を両立させました。
+                              </dd>
+                            </li>
+                            <li class="featured-points__item">
+                              <dt>一人完結を活かした2週間の短納期デリバリー</dt>
+                              <dd>
+                                要件整理からFigmaによるプロトタイピング、オリジナルテーマ実装までを一気通貫で担当。デザインとコーディングの間で手戻りが発生しない設計を徹底し、実質2週間というタイトなスケジュールの中で破綻のない品質で公開まで完結させました。
+                              </dd>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+
                     </div>
                   </div>
                 </div>
@@ -886,22 +994,29 @@ const scrollToSection = (targetId) => {
   position: relative;
 }
 
+.featured-work__frame + .featured-work__frame {
+  margin-top: 3rem;
+}
+
 .featured-work__box {
   background: var(--color-surface);
   padding: 2rem 2rem;
 }
 
 .featured-work__heading {
-  color: var(--color-white);
-  display: inline-block;
-  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
 .featured-work__heading-text {
-  color: var(--color-accent);
+  background-color: var(--color-accent);
+  color: var(--color-text-main);
   font-size: 1.75rem;
   font-weight: bold;
   line-height: 1;
+  padding: 12px 1.5rem 6px;
 }
 
 .featured-work__category {
@@ -909,14 +1024,25 @@ const scrollToSection = (targetId) => {
   font-weight: bold;
   color: var(--color-text-muted);
   line-height: 1.1;
-  padding-top: .5rem;
+  padding-top: 0.875rem;
 }
 
 .featured-work__content {
-  display: grid;
-  grid-template-columns: 440px 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
   align-items: start;
+}
+
+.featured-work__visual {
+  width: 100%;
+}
+
+.featured-work__note {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  margin-top: 0.625rem;
+  text-align: center;
 }
 
 @media (max-width: 992px) {
@@ -955,11 +1081,9 @@ const scrollToSection = (targetId) => {
 }
 
 .featured-meta {
-  background: var(--color-surface-contents);
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 1rem 1rem 0.75rem;
+  gap: 1rem;
 }
 
 .featured-meta__item {
@@ -967,6 +1091,12 @@ const scrollToSection = (targetId) => {
   display: flex;
   align-items: center;
   gap: 0.875rem;
+  padding: 0 1rem;
+}
+
+.featured-meta__item + .featured-meta__item {
+  border-top: 1px solid var(--color-surface-contents);
+  padding-top: 1rem;
 }
 
 .featured-meta__label {
@@ -974,7 +1104,7 @@ const scrollToSection = (targetId) => {
   font-size: 1.125rem;
   font-weight: bold;
   line-height: 1;
-  min-width: 4rem;
+  min-width: 6rem;
 }
 
 .featured-meta__text {
@@ -996,16 +1126,18 @@ const scrollToSection = (targetId) => {
   gap: 1rem;
 }
 
+.featured-points__item + .featured-points__item {
+  padding-top: 0.75rem;
+}
+
 .featured-points__item dt {
   color: var(--color-text-main);
-  border-bottom: 1px solid var(--color-surface-contents);
   font-size: 1rem;
   font-weight: bold;
   display: flex;
   align-items: center;
   gap: .5rem;
   margin-bottom: .5rem;
-  padding-bottom: 4px;
 }
 
 .featured-points__item dt::before {
@@ -1030,9 +1162,6 @@ const scrollToSection = (targetId) => {
 
 /* PCブラウザ風モックアップ枠 */
 .browser-mock {
-  background: #0b1329;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 10px;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
   overflow: hidden;
 }
@@ -1045,17 +1174,6 @@ const scrollToSection = (targetId) => {
   align-items: center;
   gap: 8px;
 }
-
-/* .browser-mock__dot {
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.25);
-  width: 9px;
-  height: 9px;
-}
-
-.browser-mock__dot:nth-child(1) { background: #ef4444; }
-.browser-mock__dot:nth-child(2) { background: #f59e0b; }
-.browser-mock__dot:nth-child(3) { background: #10b981; } */
 
 .browser-mock__address {
   color: var(--color-text-muted);
@@ -1070,10 +1188,12 @@ const scrollToSection = (targetId) => {
 /* スクロール可能なビューポート */
 .browser-mock__viewport {
   position: relative;
-  height: 520px;
+  height: 600px;
   overflow-y: auto;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  touch-action: pan-y;
+  cursor: grab;
 }
 
 /* カスタムスクロールバー */
@@ -1095,6 +1215,8 @@ const scrollToSection = (targetId) => {
   width: 100%;
   height: auto;
   display: block;
+  scroll-snap-align: start;
+  max-block-size: none;
 }
 
 .browser-mock__hint {
@@ -1149,12 +1271,11 @@ const scrollToSection = (targetId) => {
 }
 
 .other-works__item {
-  transform: translateY(32px);
-  overflow: hidden;
-  background: var(--color-surface);
-  backdrop-filter: blur(10px);
   border: 1px solid var(--color-surface-contents);
+  border-radius: 1.5rem;
+  transform: translateY(32px);
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  overflow: hidden;
   will-change: transform, opacity;
 }
 
@@ -1168,15 +1289,16 @@ const scrollToSection = (targetId) => {
   text-decoration: none;
   color: inherit;
   display: block;
+  height: 600px;
+  position: relative;
 }
 
 /* 実績 サムネイル画像 */
 .other-works__thumb {
   width: 100%;
-  height: 180px;
+  height: 100%;
   background: #070d1e;
   overflow: hidden;
-  position: relative;
 }
 
 .other-works__thumb-img {
@@ -1201,7 +1323,13 @@ const scrollToSection = (targetId) => {
 
 /* 実績 詳細 */
 .other-works__body {
+  background: var(--color-surface);
   padding: 1.125rem 1rem;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .other-works__title {

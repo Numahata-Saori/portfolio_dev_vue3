@@ -293,7 +293,7 @@ const scrollToSection = (targetId) => {
 
           <article class="featured-work">
             <div class="featured-work__heading">
-              <h3 class="featured-work__heading-text txt-en">FEATURED CASE</h3>
+              <h3 class="featured-work__heading-text txt-en">FEATURED CASE 01</h3>
               <p class="featured-work__category txt-en">Web Design & Front-End</p>
             </div>
 
@@ -360,49 +360,15 @@ const scrollToSection = (targetId) => {
                           </ul>
                         </div>
                       </div>
-
-                      <!-- <div class="featured-meta">
-                        <div class="featured-meta__item">
-                          <span class="featured-meta__label txt-en">Scope</span>
-                          <span class="featured-meta__text">要件ヒアリング / 構成案・デザイン / コーディング一式（完全一人対応）</span>
-                        </div>
-                        <div class="featured-meta__item">
-                          <span class="featured-meta__label txt-en">Stack</span>
-                          <span class="featured-meta__text">HTML / CSS (BEM) / JavaScript / レスポンシブ対応<br>figma / Photoshop</span>
-                        </div>
-                        <div class="featured-meta__item">
-                          <span class="featured-meta__label txt-en">Results</span>
-                          <span class="featured-meta__text">ゼロからの専用LP立ち上げにより、公開後半年で累計50〜70件超の新規問い合わせを獲得</span>
-                        </div>
-                      </div> -->
-
-                      <!-- <div class="featured-points">
-                        <h4 class="featured-points__title">設計・実装におけるこだわり</h4>
-                        <dl class="featured-points__list">
-                          <div class="featured-points__item">
-                            <dt>ゼロからのWeb導線確立（AIDCAS設計）</dt>
-                            <dd>
-                              元々は受け皿となる専用ページがなかったため、AIDCAS（注目・興味・欲求・確信・行動）に準拠した情報設計を実施。初めて訪れたユーザーでも不安なく問い合わせに至る導線をゼロから構築しました。
-                            </dd>
-                          </div>
-                          <div class="featured-points__item">
-                            <dt>「海と船」のコンセプトを表現する波シェイプ</dt>
-                            <dd>
-                              船の写真を大胆に使用しつつ、セクション境界に波シェイプを採用。「スクロールするほど船で目的地（お問い合わせ）へ近づいていく」ストーリー性を持たせ、離脱を防ぐ工夫を施しました。
-                            </dd>
-                          </div>
-                          <div class="featured-points__item">
-                            <dt>崩れのない堅牢なレスポンシブコーディング</dt>
-                            <dd>
-                              スマートフォンからPCまで閲覧環境を問わず世界観を損なわないよう、波の形状やフォントサイズのブレークポイントを綿密に設計。ヒアリングから納品まで責任を持って一人で完結させました。
-                            </dd>
-                          </div>
-                        </dl>
-                      </div> -->
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
+
+            <div class="featured-work__heading">
+              <h3 class="featured-work__heading-text txt-en">FEATURED CASE 02</h3>
+              <p class="featured-work__category txt-en">Web Design & Front-End</p>
             </div>
 
             <div class="featured-work__frame intersecting-frames-wrapper">
@@ -411,9 +377,6 @@ const scrollToSection = (targetId) => {
                   <div class="featured-work__content">
                     <div class="featured-work__visual">
                       <div class="browser-mock">
-                        <!-- <div class="browser-mock__bar">
-                          <a href="https://intro.autohub-dev.com/" target="_blank" rel="noopener noreferrer" class="browser-mock__address">https://intro.autohub-dev.com/</a>
-                        </div> -->
                         <div class="browser-mock__viewport">
                           <img
                             src="/exerciselp_00.jpg"
@@ -433,41 +396,45 @@ const scrollToSection = (targetId) => {
                       <h3 class="featured-info__title">パーソナルトレーニングジムLP</h3>
 
                       <div class="featured-meta">
-                        <div class="featured-meta__item">
-                          <p class="featured-meta__label txt-en">Scope</p>
-                          <p class="featured-meta__text">構成案・デザイン / コーディング一式（完全一人対応）/ WordPress実装<br>（制作期間：2週間 / 完全一人対応）</p>
-                        </div>
-                        <div class="featured-meta__item">
-                          <p class="featured-meta__label txt-en">Stack</p>
-                          <p class="featured-meta__text">HTML / CSS (BEM) / JavaScript / WordPress（オリジナルテーマ） / レスポンシブ対応<br>figma / Photoshop</p>
-                        </div>
-                        <div class="featured-meta__item">
-                          <p class="featured-meta__label txt-en">Results</p>
-                          <p class="featured-meta__text">管理画面のカスタム設計により、専門知識不要で即日キャンペーン更新ができる運用体制を確立。<br>短納期（2週間）の中でデザインから公開まで遅延なく完結。</p>
-                        </div>
-                        <div class="featured-meta__item">
-                          <p class="featured-meta__label txt-en">Approach</p>
-                          <ul class="featured-points">
-                            <li class="featured-points__item">
-                              <dt>運用の属人化を防ぐカスタム管理画面設計</dt>
-                              <dd>
-                                「キャンペーン内容を自分で簡単に更新したい」という課題に対し、クライアントがコードに触れることなく直感的にテキストやバナーを差し替えられるよう入力エリアを最適化。更新ミスを防ぎ、外部委託コストとタイムラグを削減しました。
-                              </dd>
-                            </li>
-                            <li class="featured-points__item">
-                              <dt>女性ターゲットに合わせた心理的ハードルを下げるビジュアル設計</dt>
-                              <dd>
-                                ジム通いへの敷居を下げるため、パステル基調の柔らかなトーン、角丸UI、手書き風のあしらいを採用。親しみやすさを担保しつつ、CTAボタンや重要な料金情報はアクセントカラーでコントラストを効かせ、視線誘導と信頼感を両立させました。
-                              </dd>
-                            </li>
-                            <li class="featured-points__item">
-                              <dt>一人完結を活かした2週間の短納期デリバリー</dt>
-                              <dd>
-                                要件整理からFigmaによるプロトタイピング、オリジナルテーマ実装までを一気通貫で担当。デザインとコーディングの間で手戻りが発生しない設計を徹底し、実質2週間というタイトなスケジュールの中で破綻のない品質で公開まで完結させました。
-                              </dd>
-                            </li>
-                          </ul>
-                        </div>
+                        <!-- <div class="featured-meta__contents"> -->
+                          <div class="featured-meta__item">
+                            <p class="featured-meta__label txt-en">Scope</p>
+                            <p class="featured-meta__text">構成案・デザイン / コーディング一式（完全一人対応）/ WordPress実装<br>（制作期間：2週間 / 完全一人対応）</p>
+                          </div>
+                          <div class="featured-meta__item">
+                            <p class="featured-meta__label txt-en">Stack</p>
+                            <p class="featured-meta__text">HTML / CSS (BEM) / JavaScript / WordPress（オリジナルテーマ） / レスポンシブ対応<br>figma / Photoshop</p>
+                          </div>
+                          <div class="featured-meta__item">
+                            <p class="featured-meta__label txt-en">Results</p>
+                            <p class="featured-meta__text">管理画面のカスタム設計により、専門知識不要で即日キャンペーン更新ができる運用体制を確立。<br>短納期（2週間）の中でデザインから公開まで遅延なく完結。</p>
+                          </div>
+                        <!-- </div> -->
+                        <!-- <div class="featured-meta__contents"> -->
+                          <div class="featured-meta__item">
+                            <p class="featured-meta__label txt-en">Approach</p>
+                            <ul class="featured-points">
+                              <li class="featured-points__item">
+                                <dt>運用の属人化を防ぐカスタム管理画面設計</dt>
+                                <dd>
+                                  「キャンペーン内容を自分で簡単に更新したい」という課題に対し、クライアントがコードに触れることなく直感的にテキストやバナーを差し替えられるよう入力エリアを最適化。更新ミスを防ぎ、外部委託コストとタイムラグを削減しました。
+                                </dd>
+                              </li>
+                              <li class="featured-points__item">
+                                <dt>女性ターゲットに合わせた心理的ハードルを下げるビジュアル設計</dt>
+                                <dd>
+                                  ジム通いへの敷居を下げるため、パステル基調の柔らかなトーン、角丸UI、手書き風のあしらいを採用。親しみやすさを担保しつつ、CTAボタンや重要な料金情報はアクセントカラーでコントラストを効かせ、視線誘導と信頼感を両立させました。
+                                </dd>
+                              </li>
+                              <li class="featured-points__item">
+                                <dt>一人完結を活かした2週間の短納期デリバリー</dt>
+                                <dd>
+                                  要件整理からFigmaによるプロトタイピング、オリジナルテーマ実装までを一気通貫で担当。デザインとコーディングの間で手戻りが発生しない設計を徹底し、実質2週間というタイトなスケジュールの中で破綻のない品質で公開まで完結させました。
+                                </dd>
+                              </li>
+                            </ul>
+                          </div>
+                        <!-- </div> -->
                       </div>
 
                     </div>
@@ -994,8 +961,8 @@ const scrollToSection = (targetId) => {
   position: relative;
 }
 
-.featured-work__frame + .featured-work__frame {
-  margin-top: 3rem;
+.featured-work__frame + .featured-work__heading {
+  margin-top: 3.75rem;
 }
 
 .featured-work__box {
@@ -1068,11 +1035,17 @@ const scrollToSection = (targetId) => {
 }
 
 /* 詳細解説 */
+.featured-info {
+  margin: 0 auto;
+  max-width: 680px;
+}
+
 .featured-info__title {
   color: var(--color-accent);
   font-size: 1.45rem;
   font-weight: 700;
   line-height: 1.1;
+  text-align: center;
 }
 
 .featured-info__title,
@@ -1084,7 +1057,16 @@ const scrollToSection = (targetId) => {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  /* display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem; */
 }
+
+/* .featured-meta__contents {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+} */
 
 .featured-meta__item {
   font-size: 0.875rem;

@@ -6,15 +6,10 @@ export default {
   rules: {
     // 厳しすぎるルールは適宜オフにする
 
-    // 廃止された古いルールの警告を消す
-    'at-charset-rule-no-invalid': null,
-    'value-no-invalid': null,
-
     // 開発効率を優先して過剰なルールをオフにする
     'no-descending-specificity': null, // 詳細度の並び順チェックを無効化
     'property-no-vendor-prefix': null, // -webkit-mask-image 等のプレフィックスを許可
     'declaration-empty-line-before': null, // プロパティ間の空行を許可
-    'keyframes-name-pattern': null, // @keyframes scrollDown などの命名を許可
     'color-hex-length': null, // カラーコードを短縮強制しない
     'declaration-block-no-redundant-longhand-properties': null,
 

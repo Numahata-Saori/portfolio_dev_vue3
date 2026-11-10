@@ -7,7 +7,7 @@ import ThreeBackground from './components/ThreeBackground.vue'
   <div class="app-layout">
     <ThreeBackground />
 
-    <header class="site-header js_header_hight">
+    <header class="site-header js-header-hight">
       <div class="header-inner">
         <RouterLink to="/" class="site-logo">Creative Swamp</RouterLink>
         <nav class="site-nav">

@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, nextTick } from 'vue'
+import { ref, onMounted, onUnmounted, nextTick } from 'vue'
 import { RouterLink } from 'vue-router'
 import { animate, stagger } from 'animejs'
 
@@ -10,6 +10,25 @@ const works = ref([]) // APIから取得したデータの配列を保持
 const loading = ref(true) // 通信中かどうかを判定
 const errorMsg = ref(null) // 通信失敗時のエラー分を保持
 
+const scrollToSection = (targetId) => {
+  const targetSectionId = document.querySelector(targetId)
+  if (!targetSectionId) return // IDなければ終了
+
+  // 固定ヘッダーの実際の高さを取得
+  const header = document.querySelector('.js-header-hight')
+  const headerHeight = header ? header.offsetHeight : 0
+
+  // ターゲット要素のドキュメント絶対Y座標 - ヘッダーの高さ
+  const targetPosition = targetSectionId.getBoundingClientRect().top + window.scrollY - headerHeight
+
+  window.scrollTo({
+    top: targetPosition,
+    behavior: 'smooth',
+  })
+}
+
+const activeFirstSkill = ref('skill-front')
+let skillObserver = null
 
 // 初期表示された直後1回だけ自動実行
 onMounted(async () => {
@@ -181,12 +200,19 @@ onMounted(async () => {
       ease: 'outExpo',
     })
 
-    // スキルカード
-    animate('.skills__box', {
+    animate('.skills-stack', {
       opacity: [0, 1],
       translateY: [20, 0],
-      delay: stagger(100, { start: 150 }),
       duration: 900,
+      ease: 'outExpo',
+    })
+
+    // スキルカード
+    animate('.skills-console', {
+      opacity: [0, 1],
+      translateY: [20, 0],
+      // delay: stagger(100, { start: 150 }),
+      duration: 1000,
       ease: 'outExpo',
     })
   })
@@ -221,24 +247,30 @@ onMounted(async () => {
     )
     themeObserver.observe(loopStopArea)
   }
+
+  const options = {
+    root: null,
+    rootMargin: '-20% 0px -50% 0px',
+    threshold: 0,
+  }
+
+  skillObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        activeFirstSkill.value = entry.target.id
+      }
+    })
+  }, options)
+
+  const sheets = document.querySelectorAll('.js-skills-contents')
+  sheets.forEach((sheet) => skillObserver.observe(sheet))
 })
 
-const scrollToSection = (targetId) => {
-  const target = document.querySelector(targetId)
-  if (!target) return // IDなければ終了
-
-  // 固定ヘッダーの実際の高さを取得
-  const header = document.querySelector('.js_header_hight')
-  const headerHeight = header ? header.offsetHeight : 0
-
-  // ターゲット要素のドキュメント絶対Y座標 - ヘッダーの高さ
-  const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight
-
-  window.scrollTo({
-    top: targetPosition,
-    behavior: 'smooth',
-  })
-}
+onUnmounted(() => {
+  if (skillObserver) {
+    skillObserver.disconnect()
+  }
+})
 </script>
 
 <template>
@@ -338,26 +370,26 @@ const scrollToSection = (targetId) => {
                         </div>
                         <div class="featured-meta__item">
                           <p class="featured-meta__label txt-en">Approach</p>
-                          <ul class="featured-points">
-                            <li class="featured-points__item">
+                          <dl class="featured-points">
+                            <div class="featured-points__item">
                               <dt>ゼロからのWeb導線確立（AIDCAS設計）</dt>
                               <dd>
                                 元々は受け皿となる専用ページがなかったため、AIDCAS（注目・興味・欲求・確信・行動）に準拠した情報設計を実施。初めて訪れたユーザーでも不安なく問い合わせに至る導線をゼロから構築しました。
                               </dd>
-                            </li>
-                            <li class="featured-points__item">
+                            </div>
+                            <div class="featured-points__item">
                               <dt>「海と船」のコンセプトを表現する波シェイプ</dt>
                               <dd>
                                 船の写真を大胆に使用しつつ、セクション境界に波シェイプを採用。「スクロールするほど船で目的地（お問い合わせ）へ近づいていく」ストーリー性を持たせ、離脱を防ぐ工夫を施しました。
                               </dd>
-                            </li>
-                            <li class="featured-points__item">
+                            </div>
+                            <div class="featured-points__item">
                               <dt>崩れのない堅牢なレスポンシブコーディング</dt>
                               <dd>
                                 スマートフォンからPCまで閲覧環境を問わず世界観を損なわないよう、波の形状やフォントサイズのブレークポイントを綿密に設計。ヒアリングから納品まで責任を持って一人で完結させました。
                               </dd>
-                            </li>
-                          </ul>
+                            </div>
+                          </dl>
                         </div>
                       </div>
                     </div>
@@ -396,45 +428,41 @@ const scrollToSection = (targetId) => {
                       <h3 class="featured-info__title">パーソナルトレーニングジムLP</h3>
 
                       <div class="featured-meta">
-                        <!-- <div class="featured-meta__contents"> -->
-                          <div class="featured-meta__item">
-                            <p class="featured-meta__label txt-en">Scope</p>
-                            <p class="featured-meta__text">構成案・デザイン / コーディング一式（完全一人対応）/ WordPress実装<br>（制作期間：2週間 / 完全一人対応）</p>
-                          </div>
-                          <div class="featured-meta__item">
-                            <p class="featured-meta__label txt-en">Stack</p>
-                            <p class="featured-meta__text">HTML / CSS (BEM) / JavaScript / WordPress（オリジナルテーマ） / レスポンシブ対応<br>figma / Photoshop</p>
-                          </div>
-                          <div class="featured-meta__item">
-                            <p class="featured-meta__label txt-en">Results</p>
-                            <p class="featured-meta__text">管理画面のカスタム設計により、専門知識不要で即日キャンペーン更新ができる運用体制を確立。<br>短納期（2週間）の中でデザインから公開まで遅延なく完結。</p>
-                          </div>
-                        <!-- </div> -->
-                        <!-- <div class="featured-meta__contents"> -->
-                          <div class="featured-meta__item">
-                            <p class="featured-meta__label txt-en">Approach</p>
-                            <ul class="featured-points">
-                              <li class="featured-points__item">
-                                <dt>運用の属人化を防ぐカスタム管理画面設計</dt>
-                                <dd>
-                                  「キャンペーン内容を自分で簡単に更新したい」という課題に対し、クライアントがコードに触れることなく直感的にテキストやバナーを差し替えられるよう入力エリアを最適化。更新ミスを防ぎ、外部委託コストとタイムラグを削減しました。
-                                </dd>
-                              </li>
-                              <li class="featured-points__item">
-                                <dt>女性ターゲットに合わせた心理的ハードルを下げるビジュアル設計</dt>
-                                <dd>
-                                  ジム通いへの敷居を下げるため、パステル基調の柔らかなトーン、角丸UI、手書き風のあしらいを採用。親しみやすさを担保しつつ、CTAボタンや重要な料金情報はアクセントカラーでコントラストを効かせ、視線誘導と信頼感を両立させました。
-                                </dd>
-                              </li>
-                              <li class="featured-points__item">
-                                <dt>一人完結を活かした2週間の短納期デリバリー</dt>
-                                <dd>
-                                  要件整理からFigmaによるプロトタイピング、オリジナルテーマ実装までを一気通貫で担当。デザインとコーディングの間で手戻りが発生しない設計を徹底し、実質2週間というタイトなスケジュールの中で破綻のない品質で公開まで完結させました。
-                                </dd>
-                              </li>
-                            </ul>
-                          </div>
-                        <!-- </div> -->
+                        <div class="featured-meta__item">
+                          <p class="featured-meta__label txt-en">Scope</p>
+                          <p class="featured-meta__text">構成案・デザイン / コーディング一式（完全一人対応）/ WordPress実装<br>（制作期間：2週間 / 完全一人対応）</p>
+                        </div>
+                        <div class="featured-meta__item">
+                          <p class="featured-meta__label txt-en">Stack</p>
+                          <p class="featured-meta__text">HTML / CSS (BEM) / JavaScript / WordPress（オリジナルテーマ） / レスポンシブ対応<br>figma / Photoshop</p>
+                        </div>
+                        <div class="featured-meta__item">
+                          <p class="featured-meta__label txt-en">Results</p>
+                          <p class="featured-meta__text">管理画面のカスタム設計により、専門知識不要で即日キャンペーン更新ができる運用体制を確立。<br>短納期（2週間）の中でデザインから公開まで遅延なく完結。</p>
+                        </div>
+                        <div class="featured-meta__item">
+                          <p class="featured-meta__label txt-en">Approach</p>
+                          <dl class="featured-points">
+                            <div class="featured-points__item">
+                              <dt>運用の属人化を防ぐカスタム管理画面設計</dt>
+                              <dd>
+                                「キャンペーン内容を自分で簡単に更新したい」という課題に対し、クライアントがコードに触れることなく直感的にテキストやバナーを差し替えられるよう入力エリアを最適化。更新ミスを防ぎ、外部委託コストとタイムラグを削減しました。
+                              </dd>
+                            </div>
+                            <div class="featured-points__item">
+                              <dt>女性ターゲットに合わせた心理的ハードルを下げるビジュアル設計</dt>
+                              <dd>
+                                ジム通いへの敷居を下げるため、パステル基調の柔らかなトーン、角丸UI、手書き風のあしらいを採用。親しみやすさを担保しつつ、CTAボタンや重要な料金情報はアクセントカラーでコントラストを効かせ、視線誘導と信頼感を両立させました。
+                              </dd>
+                            </div>
+                            <div class="featured-points__item">
+                              <dt>一人完結を活かした2週間の短納期デリバリー</dt>
+                              <dd>
+                                要件整理からFigmaによるプロトタイピング、オリジナルテーマ実装までを一気通貫で担当。デザインとコーディングの間で手戻りが発生しない設計を徹底し、実質2週間というタイトなスケジュールの中で破綻のない品質で公開まで完結させました。
+                              </dd>
+                            </div>
+                          </dl>
+                        </div>
                       </div>
 
                     </div>
@@ -586,74 +614,187 @@ const scrollToSection = (targetId) => {
       <section class="skills common">
         <div class="common-inner">
           <div class="section-heading">
-            <h2 class="section-title txt-en">SKILLS & SCOPE</h2>
+            <h2 class="section-title txt-en">SKILLS &amp; SCOPE</h2>
             <!-- <p class="section-lead">設計業務で培った品質意識を基盤とした、実装スキルと対応領域です。</p> -->
           </div>
 
-          <div class="skills__contents">
-            <div class="skills__box border-frames">
-              <div class="skills__headline">
-                <span class="skills__title-en txt-en">FRONT-END</span>
-                <h3 class="skills__title">フロントエンド実装</h3>
-              </div>
-              <ul class="skills__list">
-                <li class="skills__item">
-                  <strong>破綻のないCSS設計:</strong><br>
-                  BEMやSMACSSをベースに、命名規則や入れ子を整理したScss設計で、改修しやすく保守性の高いコードを実装します。
-                </li>
-                <li class="skills__item">
-                  <strong>動的UI・インタラクション:</strong><br>
-                  JavaScript（ES6+）を用いた各種UI実装をはじめ、案件要件に応じてライブラリ選定から組み込みまで柔軟に対応します。
-                </li>
-                <li class="skills__item">
-                  <strong>モダン環境のキャッチアップ:</strong><br>
-                  Vue 3によるコンポーネント指向開発や、Three.js / Anime.js を活用した軽快なモーション・WebGL演出の実装に対応します。
-                </li>
-              </ul>
-            </div>
-
-            <div class="skills__box border-frames">
-              <div class="skills__headline">
-                <span class="skills__title-en txt-en">CMS / BACK-END</span>
-                <h3 class="skills__title">WordPress / 設計構築</h3>
-              </div>
-              <ul class="skills__list">
-                <li class="skills__item">
-                  <strong>運用を見据えた独自テーマ構築:</strong><br>
-                  ゼロからのオリジナルテーマ構築はもちろん、ACFやカスタム投稿を設計し、クライアントが管理画面から迷わず更新できる設計を徹底します。
-                </li>
-                <li class="skills__item">
-                  <strong>機能実装・API連携:</strong><br>
-                  PHPを用いた基本的な動的処理（テンプレート共通化・フォーム連携）や、REST API経由でのフロントエンド連携に対応します。
-                </li>
-                <li class="skills__item">
-                  <strong>環境構築と納品整備:</strong><br>
-                  ローカル開発環境から本番サーバーへの移行、既存テーマの改修や不具合調査など安全な運用保守を意識して対応します。
-                </li>
-              </ul>
-            </div>
-
-            <div class="skills__box full-width border-frames">
-              <div class="skills__headline">
-                <span class="skills__title-en highlight txt-en">SCOPE</span>
-                <h3 class="skills__title">実務対応領域・進め方</h3>
-              </div>
-              <div class="scope-columns">
-                <div class="scope-columns__item">
-                  <h4 class="scope-columns__title">完全一人対応での案件完結</h4>
-                  <p class="scope-columns__desc">
-                    フリーランスでの受託経験を活かし、要件のヒアリングから進行管理、コーディング、サーバー公開設定、納品まで一気通貫で責任を持って対応した実績があります。
-                  </p>
+          <div class="skills-stack intersecting-frames-wrapper">
+            <div class="intersecting-frames">
+              <div class="skills-stack__box intersecting-frames-inner">
+                <div class="skills-stack__group">
+                  <span class="skills-stack__category txt-en">FRONT-END</span>
+                  <ul class="skills-stack__list">
+                    <li class="skills-stack__item">HTML5</li>
+                    <li class="skills-stack__item">CSS</li>
+                    <li class="skills-stack__item">SCSS</li>
+                    <li class="skills-stack__item">JavaScript (ES6+ / ES5)</li>
+                    <li class="skills-stack__item">Vue.js (Vue 3)</li>
+                    <li class="skills-stack__item">jQuery</li>
+                    <li class="skills-stack__item">Three.js</li>
+                  </ul>
                 </div>
-                <div class="scope-columns__item">
-                  <h4 class="scope-columns__title">仕様書に基づく高精度な受託実装</h4>
-                  <p class="scope-columns__desc">
-                    制作会社からの下請け案件において、支給デザインや仕様書の意図を正確に汲み取り、ブラウザ検証や表示崩れのない検品精度の高いデータ納品を行っています。
-                  </p>
+
+                <div class="skills-stack__group">
+                  <span class="skills-stack__category txt-en">CMS / BACK-END</span>
+                  <ul class="skills-stack__list">
+                    <li class="skills-stack__item">WordPress (オリジナルテーマ)</li>
+                    <li class="skills-stack__item">PHP</li>
+                    <li class="skills-stack__item">REST API連携</li>
+                  </ul>
+                </div>
+
+                <div class="skills-stack__group">
+                  <span class="skills-stack__category txt-en">DESIGN &amp; ASSETS</span>
+                  <ul class="skills-stack__list">
+                    <li class="skills-stack__item">Figma</li>
+                    <li class="skills-stack__item">Photoshop</li>
+                    <li class="skills-stack__item">Illustrator</li>
+                  </ul>
+                </div>
+
+                <div class="skills-stack__group">
+                  <span class="skills-stack__category txt-en">DEV TOOLS</span>
+                  <ul class="skills-stack__list">
+                    <li class="skills-stack__item">Vite</li>
+                    <li class="skills-stack__item">Git / GitHub</li>
+                    <li class="skills-stack__item">ESLint / Stylelint</li>
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
+
+          <div class="skills-console">
+            <aside class="skills-hud">
+              <div class="skills-hud__panel">
+                <div class="skills-hud__header">
+                  <span class="skills-hud__status-dot"></span>
+                  <span class="skills-hud__status-txt txt-en">MODULE MONITOR // ACTIVE</span>
+                </div>
+
+                <nav class="skills-hud__nav">
+                  <button
+                    type="button"
+                    class="skills-hud__btn"
+                    :class="{ 'is-active': activeFirstSkill === 'skill-front' }"
+                    @click="scrollToSection('skill-front')"
+                  >
+                    <span class="skills-hud__num txt-en">01</span>
+                    <span class="skills-hud__name">FRONT-END</span>
+                    <span class="skills-hud__marker"></span>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="skills-hud__btn"
+                    :class="{ 'is-active': activeFirstSkill === 'skill-cms' }"
+                    @click="scrollToSection('skill-cms')"
+                  >
+                    <span class="skills-hud__num txt-en">02</span>
+                    <span class="skills-hud__name">CMS / BACK-END</span>
+                    <span class="skills-hud__marker"></span>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="skills-hud__btn"
+                    :class="{ 'is-active': activeFirstSkill === 'skill-process' }"
+                    @click="scrollToSection('skill-process')"
+                  >
+                    <span class="skills-hud__num txt-en">03</span>
+                    <span class="skills-hud__name">PROCESS &amp; SCOPE</span>
+                    <span class="skills-hud__marker"></span>
+                  </button>
+                </nav>
+
+                <div class="skills-hud__footer txt-en">
+                  <span>Ver: 2026.12</span>
+                </div>
+              </div>
+            </aside>
+
+            <div class="skills-sheet">
+              <article id="skill-front" class="skills-sheet__contents js-skills-contents" :class="{ 'is-active': activeFirstSkill === 'skill-front' }">
+                <div class="skills-sheet__head">
+                  <span class="skills-sheet__index txt-en">SPEC // 01</span>
+                  <h3 class="skills-sheet__title">フロントエンド実装</h3>
+                </div>
+                <dl class="skills-sheet__specs">
+                  <div class="skills-sheet__item">
+                    <dt>破綻のないCSS設計（BEM / SMACSS）</dt>
+                    <dd>
+                      <!-- 命名規則と階層構造を論理的に整理し、将来の運用保守や機能追加で破綻しにくい堅牢なCSS/SCSSを設計・実装します。320pxから2560pxまで崩れない精密なレスポンシブにも対応します。 -->
+                      命名規則と階層構造を論理的に整理し、将来の改修や機能追加で破綻しにくい堅牢なCSS/SCSSを実装します。320pxから2560pxまで崩れない精密なレスポンシブに対応します。
+                    </dd>
+                  </div>
+                  <div class="skills-sheet__item">
+                    <dt>モダン構文とレガシー環境（ES5）への適応</dt>
+                    <dd>
+                      ES6+によるコンポーネント開発だけでなく、既存プラットフォームの大規模運用におけるES5やvarなどのレガシー制約にも柔軟に適応。既存コードの規約を遵守した安全な実装が可能です。
+                    </dd>
+                  </div>
+                  <div class="skills-sheet__item">
+                    <dt>コンポーネント指向・WebGL空間演出</dt>
+                    <dd>
+                      Vue 3（SFC）を用いた再利用性の高い設計や、Three.js / CSSアニメーションによる滑らかな空間演出・インタラクションの実装に対応します。
+                      <!-- Vue 3（SFC）を用いた再利用性の高いUI設計や、Three.jsによるパーティクル・天体背景などの軽量なモーション演出を実装します。 -->
+                    </dd>
+                  </div>
+                </dl>
+              </article>
+
+              <article id="skill-cms" class="skills-sheet__contents js-skills-contents" :class="{ 'is-active': activeFirstSkill === 'skill-cms' }">
+                <div class="skills-sheet__head">
+                  <span class="skills-sheet__index txt-en">SPEC // 02</span>
+                  <h3 class="skills-sheet__title">WordPress / 設計構築</h3>
+                </div>
+                <dl class="skills-sheet__specs">
+                  <div class="skills-sheet__item">
+                    <dt>運用者目線のオリジナルテーマ開発</dt>
+                    <dd>
+                      ゼロからの独自テーマ構築に対応。ACFやカスタム投稿タイプを最適に設計し、非エンジニアの運用担当者がコードを触ることなく安全にコンテンツ更新できる管理画面を構築します。
+                    </dd>
+                  </div>
+                  <div class="skills-sheet__item">
+                    <dt>動的処理・フロントエンドデータ連携</dt>
+                    <dd>
+                      PHPによるテンプレート共通化や条件分岐処理をはじめ、WordPress REST APIを用いたヘッドレス構成やフロントエンドへのデータ連携に対応します。
+                    </dd>
+                  </div>
+                  <div class="skills-sheet__item">
+                    <dt>環境移行・既存コードの保守改修</dt>
+                    <dd>
+                      <!-- ローカル環境から本番サーバーへの安全な移行作業、既存テーマのコード解析、プラグイン競合や表示不具合の調査・改修など、安定運用を見据えた対応を行います。 -->
+                      ローカル環境から本番サーバーへの安全な移行作業、既存テーマのコード解析、プラグイン競合や表示崩れの調査・修正など、安定稼働を見据えた対応を行います。
+                    </dd>
+                  </div>
+                </dl>
+              </article>
+
+              <article id="skill-process" class="skills-sheet__contents js-skills-contents" :class="{ 'is-active': activeFirstSkill === 'skill-process' }">
+                <div class="skills-sheet__head">
+                  <span class="skills-sheet__index txt-en">SPEC // 03</span>
+                  <h3 class="skills-sheet__title">実務対応領域・品質へのアプローチ</h3>
+                </div>
+                <dl class="skills-sheet__specs">
+                  <div class="skills-sheet__item">
+                    <dt>全体工程を把握した自走力（End-to-End）</dt>
+                    <dd>
+                      <!-- 要件整理からFigmaによる情報設計、コーディング、サーバー公開までを一気通貫で完結させた経験を持っています。開発全体のフローとボトルネックを理解しているため、チーム開発においても前後の工程（デザイン・バックエンド）とスムーズに連携できます。 -->
+                      要件整理からFigmaによるプロトタイピング、コーディング、サーバー公開までを一気通貫で完結させた経験を保有。制作全体の流れを理解しているため、チーム開発においても前後の工程とスムーズに連携できます。
+                    </dd>
+                  </div>
+                  <div class="skills-sheet__item">
+                    <dt>レギュレーション遵守と仕組みによる品質担保</dt>
+                    <dd>
+                      個人の注意力だけに頼り切るのではなく、プロジェクトのコーディング規約やLintツール（ESLint/Stylelint）、画面幅検証を徹底。チームの方針を忠実に守り、意図しない表示崩れや改修時の影響範囲を抑えた安全なコードを心掛けています。
+                    </dd>
+                  </div>
+                </dl>
+              </article>
+            </div>
+          </div>
+
         </div>
       </section>
     </div>
@@ -1521,120 +1662,330 @@ const scrollToSection = (targetId) => {
 
 
 /* スキル */
-.skills__contents {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.75rem;
-}
-
-.skills__box {
-  background: var(--color-surface);
-  padding: 1.5rem 1.75rem;
+.skills-stack,
+.skills-console {
   opacity: 0;
 }
 
-.skills__box.full-width {
-  grid-column: 1 / -1;
+
+/* スキルスタック */
+.skills-stack {
+  margin-bottom: 3rem;
 }
 
-.skills__headline {
+.skills-stack__box {
+  background: var(--color-surface);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 1.25rem;
+  padding: 1.5rem;
+}
+
+.skills-stack__group {
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  margin-bottom: 1rem;
+  gap: 0.75rem 1rem;
 }
 
-.skills__title-en {
-  color: var(--color-accent);
-  font-size: 0.75rem;
-  opacity: 0.75;
-  /* white-space: nowrap; */
-}
-
-.skills__title {
-  font-size: 1.25rem;
+.skills-stack__category {
+  color: var(--color-sub);
+  font-size: .875rem;
   font-weight: bold;
-  line-height: 1.1;
+  min-width: 140px;
 }
 
-.skills__list {
+.skills-stack__list {
   display: flex;
-  flex-direction: column;
-  gap: 0.875rem;
+  flex-wrap: wrap;
+  gap: .875rem;
 }
 
-.skills__item {
-  color: var(--color-text-muted);
-  font-size: 1rem;
-  position: relative;
-  padding-left: 1rem;
-}
-
-.skills__item::before {
-  content: '';
-  border-radius: 50%;
-  background-color: var(--color-accent);
-  position: absolute;
-  left: 0;
-  top: 10px;
-  width: 5px;
-  height: 5px;
-}
-
-.skills__item strong {
+.skills-stack__item {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  background: var(--color-surface-contents);
   color: var(--color-text-main);
-  font-weight: bold;
-}
-
-@media (max-width: 992px) {
-  .skills__contents {
-    gap: 1rem;
-  }
-
-  .skills__box {
-    padding: 1.5rem 1rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .skills__contents {
-    grid-template-columns: 1fr;
-  }
+  font-size: 0.875rem;
+  font-family: var(--font-josefin), sans-serif;
+  line-height: 1;
+  padding: 8px 0.625rem 4px;
 }
 
 
 
-.scope-columns {
+/* スキル詳細 */
+.skills-console {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  grid-template-columns: 280px 1fr;
+  gap: 3rem;
+  align-items: start;
 }
 
-.scope-columns__title {
-  font-size: 1rem;
-  font-weight: bold;
-  margin-bottom: 10px;
+
+
+/* スキル詳細メニュー */
+.skills-hud {
+  position: sticky;
+  top: 100px;
+  z-index: 10;
+}
+
+.skills-hud__panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-bg-grid-line);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  padding: 1.5rem;
+}
+
+.skills-hud__header {
+  border-bottom: 1px solid var(--color-surface-contents);
   display: flex;
   align-items: center;
+  gap: .75rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+}
+
+.skills-hud__status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 100vh;
+  background: var(--color-sub);
+  box-shadow: 0 0 8px var(--color-sub);
+  animation: hud-pulse 2s infinite ease-in-out;
+}
+
+@keyframes hud-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.skills-hud__status-txt {
+  color: var(--color-text-muted);
+  font-size: .75rem;
+  line-height: 1;
+  padding-top: 3px;
+}
+
+.skills-hud__nav {
+  display: flex;
+  flex-direction: column;
   gap: 0.5rem;
 }
 
-.scope-columns__title::before {
+.skills-hud__btn {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px 12px;
+  text-align: left;
+  transition: all 0.25s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.skills-hud__btn:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.skills-hud__num {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1;
+  width: 2rem;
+  transition: color 0.25s ease;
+}
+
+.skills-hud__name {
+  color: var(--color-text-sub);
+  font-size: 0.875rem;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  flex: 1;
+  transition: color 0.25s ease;
+}
+
+.skills-hud__marker {
+  width: 10px;
+  height: 10px;
+  border-radius: 100vh;
+  background: transparent;
+  transition: all 0.25s ease;
+}
+
+/* アクティブ状態 */
+.skills-hud__btn.is-active {
+  background: rgba(56, 189, 248, 0.06);
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.skills-hud__btn.is-active .skills-hud__num {
+  color: var(--color-accent);
+}
+
+.skills-hud__btn.is-active .skills-hud__name {
+  color: var(--color-text-main);
+}
+
+.skills-hud__btn.is-active .skills-hud__marker {
+  background: var(--color-sub);
+  box-shadow: 0 0 6px var(--color-sub);
+}
+
+.skills-hud__footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--color-text-muted);
+  font-size: 0.625rem;
+  letter-spacing: 0.05em;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  padding-top: 0.875rem;
+}
+
+
+
+.skills-sheet {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.skills-sheet__contents {
+  background: var(--color-surface);
+  border: 1px solid var(--color-bg-grid-line);
+  padding: 2.5rem 2rem;
+  position: relative;
+
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.skills-sheet__contents::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  pointer-events: none;
+  background:
+    /* 左上 L字 */
+    linear-gradient(var(--color-accent), var(--color-accent)) top left / 12px 1px no-repeat,
+    linear-gradient(var(--color-accent), var(--color-accent)) top left / 1px 12px no-repeat,
+
+    /* 右上 L字 */
+    linear-gradient(var(--color-accent), var(--color-accent)) top right / 12px 1px no-repeat,
+    linear-gradient(var(--color-accent), var(--color-accent)) top right / 1px 12px no-repeat,
+
+    /* 左下 L字 */
+    linear-gradient(var(--color-accent), var(--color-accent)) bottom left / 12px 1px no-repeat,
+    linear-gradient(var(--color-accent), var(--color-accent)) bottom left / 1px 12px no-repeat,
+
+    /* 右下 L字 */
+    linear-gradient(var(--color-accent), var(--color-accent)) bottom right / 12px 1px no-repeat,
+    linear-gradient(var(--color-accent), var(--color-accent)) bottom right / 1px 12px no-repeat;
+  transition: all 0.3s ease;
+}
+
+.skills-sheet__contents.is-active {
+  background: rgba(13, 24, 48, 0.85);
+  border-color: rgba(56, 189, 248, 0.2);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.05);
+}
+
+.skills-sheet__contents.is-active::before {
+  background:
+    linear-gradient(var(--color-sub), var(--color-sub)) top left / 16px 2px no-repeat,
+    linear-gradient(var(--color-sub), var(--color-sub)) top left / 2px 16px no-repeat,
+    linear-gradient(var(--color-sub), var(--color-sub)) top right / 16px 2px no-repeat,
+    linear-gradient(var(--color-sub), var(--color-sub)) top right / 2px 16px no-repeat,
+    linear-gradient(var(--color-sub), var(--color-sub)) bottom left / 16px 2px no-repeat,
+    linear-gradient(var(--color-sub), var(--color-sub)) bottom left / 2px 16px no-repeat,
+    linear-gradient(var(--color-sub), var(--color-sub)) bottom right / 16px 2px no-repeat,
+    linear-gradient(var(--color-sub), var(--color-sub)) bottom right / 2px 16px no-repeat;
+}
+
+.skills-sheet__head {
+  border-bottom: 1px solid var(--color-surface-contents);
+  display: flex;
+  align-items: baseline;
+  gap: 0.625rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+}
+
+.skills-sheet__index {
+  color: var(--color-accent);
+  font-size: 0.875rem;
+  font-weight: bold;
+  opacity: 0.75;
+}
+
+.skills-sheet__title {
+  color: var(--color-text-main);
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.skills-sheet__specs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.skills-sheet__item dt {
+  color: var(--color-text-main);
+  font-size: 1rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: .625rem;
+  margin-bottom: .5rem;
+}
+
+.skills-sheet__item dt::before {
   content: '✓';
   color: var(--color-sub);
   font-weight: bold;
 }
 
-.scope-columns__desc {
-  color: var(--color-base-light);
+.skills-sheet__item dd {
+  color: var(--color-text-muted);
   font-size: 0.875rem;
 }
 
 @media (max-width: 992px) {
-  .scope-columns {
+  .skills-console {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 2rem;
   }
+
+  .skills-hud {
+    position: static;
+  }
+
+  .skills-hud__nav {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .skills-hud__btn {
+    white-space: nowrap;
+    padding: 8px 12px;
+  }
+
+  .skills-hud__footer {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  /* .skills__contents {
+    grid-template-columns: 1fr;
+  } */
 }
 </style>

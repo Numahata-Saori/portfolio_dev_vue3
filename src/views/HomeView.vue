@@ -789,10 +789,10 @@ const scrollToSection = (targetId) => {
   width: 1px;
   height: 38px;
   background: linear-gradient(to bottom, var(--color-accent), transparent);
-  animation: scrollDown 2s infinite ease-in-out;
+  animation: scroll-down 2s infinite ease-in-out;
 }
 
-@keyframes scrollDown {
+@keyframes scroll-down {
   0% { transform: scaleY(0); transform-origin: top; }
   50% { transform: scaleY(1); transform-origin: top; }
   50.1% { transform: scaleY(1); transform-origin: bottom; }
@@ -967,7 +967,7 @@ const scrollToSection = (targetId) => {
 
 .featured-work__box {
   background: var(--color-surface);
-  padding: 2rem 2rem;
+  padding: 2rem;
 }
 
 .featured-work__heading {
@@ -1057,16 +1057,7 @@ const scrollToSection = (targetId) => {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  /* display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem; */
 }
-
-/* .featured-meta__contents {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-} */
 
 .featured-meta__item {
   font-size: 0.875rem;
@@ -1171,8 +1162,7 @@ const scrollToSection = (targetId) => {
 .browser-mock__viewport {
   position: relative;
   height: 600px;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden auto;
   scroll-behavior: smooth;
   touch-action: pan-y;
   cursor: grab;
@@ -1531,10 +1521,6 @@ const scrollToSection = (targetId) => {
 
 
 /* スキル */
-.skills__box {
-  opacity: 0;
-}
-
 .skills__contents {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1544,6 +1530,7 @@ const scrollToSection = (targetId) => {
 .skills__box {
   background: var(--color-surface);
   padding: 1.5rem 1.75rem;
+  opacity: 0;
 }
 
 .skills__box.full-width {
